@@ -1,8 +1,7 @@
 ---
 title: "Precision Filtering in Photonic Architectures"
 date: 2024-01-15
-authors: "John Doe, Jane Smith, and **PAL-KU Team**"
-authors_list: ["John Doe", "Jane Smith"]
+authors: ["John Doe", "Jane Smith", "PAL-KU Team"]
 journal: "Nature Photonics"
 year: 2024
 featured: true
@@ -21,4 +20,4 @@ bibtex: |
 
 This paper explores new methods for precision filtering in integrated photonic circuits...
 
-{{< partial "publication_card.html" . >}}
+{{< partial "publication_card.html" >}}

@@ -1,0 +1,11 @@
+# Hugo folders
+public/
+resources/
+.hugo_build.lock
+
+# OS folders
+.DS_Store
+Thumbs.db
+
+# Theme git folders (if not using submodules properly)
+themes/*/ .git
