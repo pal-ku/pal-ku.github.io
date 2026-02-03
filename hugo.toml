@@ -9,7 +9,13 @@ theme = 'blowfish'
   autoSwitchAppearance = false
   mainSections = ["news", "publications", "research"]
   
-  # Sticky Navigation
+  # Homepage configuration
+  [params.homepage]
+    layout = "profile"
+    showRecent = true
+    showRecentItems = 5
+
+  # Header configuration
   [params.header]
     layout = "fixed-fill-blur"
 
