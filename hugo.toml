@@ -5,8 +5,9 @@ theme = 'blowfish'
 
 [params]
   colorScheme = "blowfish"
-  defaultAppearance = "light" # Sydney aesthetic: white background
+  defaultAppearance = "light" 
   autoSwitchAppearance = false
+  enableThemeToggle = false
   mainSections = ["news", "publications", "research"]
   
   # Homepage configuration
@@ -15,9 +16,11 @@ theme = 'blowfish'
     showRecent = true
     showRecentItems = 5
 
-  # Header configuration
   [params.header]
     layout = "fixed-fill-blur"
+
+  [params.footer]
+    showAppearanceSwitcher = false
 
 [menu]
   [[menu.main]]

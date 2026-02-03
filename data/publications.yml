@@ -1,0 +1,58 @@
+# PAL-KU Publications
+# =====================
+# To add a new paper, copy an existing entry and modify.
+#
+# Required fields:
+#   title, authors, journal, year
+#
+# Optional link fields:
+#   type:      "journal" (default) or "conference"
+#   doi:       Link to official publication (IEEE, OSA, etc.)
+#   preprint:  Link to preprint (arXiv)
+#   pdf:       Direct PDF link
+#   code:      Link to code repository
+#   bibtex:    BibTeX citation
+
+- title: "On-Chip Arbitrary Dispersion Engineering with Deep Photonic Networks"
+  authors: ["Kazim Gorgulu", "Ali Najjar Amiri", "Aycan Deniz Vit", "Emir Salih Magden"]
+  journal: "Optics Letters"
+  volume: "50"
+  issue: "11"
+  pages: "3780-3783"
+  year: 2025
+  type: "journal"
+  doi: "https://doi.org/10.1364/OL.564441"
+  preprint: "https://arxiv.org/abs/2504.05505"
+  pdf: "https://arxiv.org/pdf/2504.05505.pdf"
+  bibtex: |
+    @article{gorgulu2025dispersion,
+      title={On-Chip Arbitrary Dispersion Engineering with Deep Photonic Networks},
+      author={Gorgulu, Kazim and Amiri, Ali Najjar and Vit, Aycan Deniz and Magden, Emir Salih},
+      journal={Optics Letters},
+      volume={50},
+      number={11},
+      pages={3780--3783},
+      year={2025}
+    }
+
+- title: "Universal On-Chip Polarization Handling with Deep Photonic Networks"
+  authors: ["Aycan Deniz Vit", "Ujal Rzayev", "Bahrem Serhat Danis", "Ali Najjar Amiri", "Kazim Gorgulu", "Emir Salih Magden"]
+  journal: "Journal of Lightwave Technology"
+  volume: "43"
+  issue: "18"
+  pages: "8770-8776"
+  year: 2025
+  type: "journal"
+  doi: "https://doi.org/10.1109/JLT.2025.3589148"
+  preprint: "https://arxiv.org/abs/2411.16698"
+  pdf: "https://arxiv.org/pdf/2411.16698.pdf"
+  bibtex: |
+    @article{vit2025polarization,
+      title={Universal On-Chip Polarization Handling with Deep Photonic Networks},
+      author={Vit, Aycan Deniz and Rzayev, Ujal and Danis, Bahrem Serhat and Amiri, Ali Najjar and Gorgulu, Kazim and Magden, Emir Salih},
+      journal={Journal of Lightwave Technology},
+      volume={43},
+      number={18},
+      pages={8770--8776},
+      year={2025}
+    }

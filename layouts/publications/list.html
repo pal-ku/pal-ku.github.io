@@ -1,0 +1,138 @@
+{{ define "main" }}
+<div class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Publications</h1>
+
+    {{ range $.Site.Data.publications }}
+    <div class="py-4 border-b border-gray-200 dark:border-neutral-700">
+        <!-- Title -->
+        <h3 class="text-base font-semibold text-gray-900 dark:text-white leading-snug">
+            {{ .title }}
+        </h3>
+
+        <!-- Authors -->
+        <p class="mt-1 text-sm text-gray-600 dark:text-neutral-400">
+            {{ delimit .authors ", " ", and " }}
+        </p>
+
+        <!-- Journal / Venue -->
+        <p class="mt-1 text-sm italic text-gray-500 dark:text-neutral-500">
+            {{ .journal }}{{ with .volume }} {{ . }}{{ end }}{{ with .issue }}({{ . }}){{ end }}{{ with .pages }}: {{ .
+            }}{{ end }}, {{ .year }}
+        </p>
+
+        <!-- Button Bar -->
+        <div class="flex flex-wrap gap-1 mt-2">
+            {{ $pub := . }}
+            {{ with .doi }}
+            <a href="{{ . }}" target="_blank" class="pub-btn">{{
+                if eq $pub.type "conference" }}Conference{{ else }}Journal{{ end }}</a>
+            {{ end }}
+
+            {{ with .preprint }}
+            <a href="{{ . }}" target="_blank" class="pub-btn">Preprint</a>
+            {{ end }}
+
+            {{ with .pdf }}
+            <a href="{{ . }}" target="_blank" class="pub-btn">PDF</a>
+            {{ end }}
+
+            {{ with .code }}
+            <a href="{{ . }}" target="_blank" class="pub-btn">Code</a>
+            {{ end }}
+
+            {{ with .bibtex }}
+            <button onclick="copyBibTeX(this)" data-bibtex="{{ . | htmlEscape }}" class="pub-btn"
+                style="width: 55px;"><span>BibTeX</span></button>
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+</div>
+
+<style>
+    .pub-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 24px;
+        padding: 0 8px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #000000 !important;
+        border: 1px solid #a3a3a3 !important;
+        border-radius: 4px;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+        box-sizing: border-box;
+        line-height: normal;
+        text-decoration: none !important;
+        outline: none;
+    }
+
+    .pub-btn span {
+        transition: opacity 0.15s ease-in-out;
+    }
+
+    /* Focus (Click Release): revert to default transparent */
+    .pub-btn:focus {
+        background-color: transparent !important;
+        border-color: #a3a3a3 !important;
+        color: #000000 !important;
+    }
+
+    /* Active (Mouse Down) & Hover: pure black (Overwrites Focus) */
+    .pub-btn:hover,
+    .pub-btn:active,
+    .pub-btn.copied {
+        background-color: #000000 !important;
+        border-color: #000000 !important;
+        color: #ffffff !important;
+    }
+</style>
+
+<script>
+    // --- SETTINGS ---
+    const SYNC_DELAY_MS = -25;  // Delay of TEXT change relative to COLOR revert (can be negative)
+    const FADE_DURATION_MS = 150; // Must match CSS transition duration
+    const AUTO_RESET_DELAY_MS = 1200; // Fixed time when the COLOR reverts
+    // ----------------
+
+    function copyBibTeX(button) {
+        const bibContent = button.dataset.bibtex;
+        const textSpan = button.querySelector('span');
+
+        navigator.clipboard.writeText(bibContent).then(() => {
+            textSpan.innerText = 'Copied!';
+            button.classList.add('copied');
+
+            // --- Reset Sequence ---
+
+            // 1. Color Revert (Fixed Anchor Point)
+            setTimeout(() => {
+                button.classList.remove('copied');
+            }, AUTO_RESET_DELAY_MS);
+
+            // 2. Text Fade Sequence (shifted by SYNC_DELAY_MS)
+            const textSequenceStart = Math.max(0, AUTO_RESET_DELAY_MS + SYNC_DELAY_MS);
+
+            setTimeout(() => {
+                // A. Fade Out "Copied!"
+                textSpan.style.opacity = '0';
+
+                // B. Swap Text & Fade In "BibTeX" (after fade duration)
+                setTimeout(() => {
+                    textSpan.innerText = 'BibTeX';
+                    requestAnimationFrame(() => {
+                        textSpan.style.opacity = '1';
+                    });
+                }, FADE_DURATION_MS);
+
+            }, textSequenceStart);
+
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+</script>
+{{ end }}
