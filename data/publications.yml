@@ -2,57 +2,73 @@
 # =====================
 # To add a new paper, copy an existing entry and modify.
 #
-# Required fields:
-#   title, authors, journal, year
+# REQUIRED FIELDS:
+#   id:        Unique handle/BibTeX key (e.g., "oktay2025experimental")
+#   type:      "journal" (maps to @article) 
+#              "conference" (maps to @inproceedings)
+#              "preprint" (maps to @article with journal={arXiv preprint ...})
+#   title:     Full paper title
+#   authors:   List of names ["First Last", "First Last"]
+#   venue:     Journal name, Conference name, OR "arXiv:xxxx.xxxxx" (for preprints)
+#   year:      Year of publication
 #
-# Optional link fields:
-#   type:      "journal" (default) or "conference"
-#   doi:       Link to official publication (IEEE, OSA, etc.)
-#   preprint:  Link to preprint (arXiv)
-#   pdf:       Direct PDF link
-#   code:      Link to code repository
-#   bibtex:    BibTeX citation
+# OPTIONAL METADATA (Appears in BibTeX and venue line):
+#   pages:     Page numbers OR Paper ID (e.g., "ck_2_2")
+#   volume:    Volume number (journals)
+#   issue:     Issue/Number (journals)
+#   publisher: e.g., "Optica Publishing Group"
+#   month:     e.g., "Jun"
+#   address:   Conference location (e.g., "Munich, Germany")
+#   note:      Additional info (session names, etc.)
+#
+# LINK FIELDS:
+#   doi:       The DOI string ONLY (e.g., "10.1364/OL.564441") - automatically becomes a link.
+#   url:       Full direct link (Required for conferences if DOI is pending/inactive).
+#   preprint:  Link to arXiv/Preprint landing page, not the PDF itself
+#   pdf:       Direct PDF download link, can be arxiv or self-hosted document on github
+#   code:      GitHub/Code link
 
-- title: "On-Chip Arbitrary Dispersion Engineering with Deep Photonic Networks"
+- id: "oktay2025experimental"
+  type: conference
+  title: "Experimental Demonstration of Ultra-Wideband Tapers, Splitters and Crossings with sub-0.1dB Loss Through Computationally Efficient and Data-Driven Eigenmode Expansion"
+  authors: ["Mehmet Can Oktay", "Bahrem Serhat Danis", "Ujal Rzayev", "Emir Salih Magden"]
+  venue: "Conference on Lasers and Electro-Optics/Europe (CLEO/Europe 2025) and European Quantum Electronics Conference (EQEC 2025)"
+  pages: "ck_2_2"
+  publisher: "Optica Publishing Group"
+  year: "2025"
+  url: "https://opg.optica.org/abstract.cfm?URI=CLEO_Europe-2025-ck_2_2"
+
+- id: gorgulu2025dispersion
+  type: journal
+  title: "On-Chip Arbitrary Dispersion Engineering with Deep Photonic Networks"
   authors: ["Kazim Gorgulu", "Ali Najjar Amiri", "Aycan Deniz Vit", "Emir Salih Magden"]
-  journal: "Optics Letters"
+  venue: "Optics Letters"
   volume: "50"
   issue: "11"
   pages: "3780-3783"
-  year: 2025
-  type: "journal"
-  doi: "https://doi.org/10.1364/OL.564441"
+  year: "2025"
+  doi: "10.1364/OL.564441"
   preprint: "https://arxiv.org/abs/2504.05505"
   pdf: "https://arxiv.org/pdf/2504.05505.pdf"
-  bibtex: |
-    @article{gorgulu2025dispersion,
-      title={On-Chip Arbitrary Dispersion Engineering with Deep Photonic Networks},
-      author={Gorgulu, Kazim and Amiri, Ali Najjar and Vit, Aycan Deniz and Magden, Emir Salih},
-      journal={Optics Letters},
-      volume={50},
-      number={11},
-      pages={3780--3783},
-      year={2025}
-    }
 
-- title: "Universal On-Chip Polarization Handling with Deep Photonic Networks"
+- id: vit2025polarization
+  type: journal
+  title: "Universal On-Chip Polarization Handling with Deep Photonic Networks"
   authors: ["Aycan Deniz Vit", "Ujal Rzayev", "Bahrem Serhat Danis", "Ali Najjar Amiri", "Kazim Gorgulu", "Emir Salih Magden"]
-  journal: "Journal of Lightwave Technology"
+  venue: "Journal of Lightwave Technology"
   volume: "43"
   issue: "18"
   pages: "8770-8776"
-  year: 2025
-  type: "journal"
-  doi: "https://doi.org/10.1109/JLT.2025.3589148"
+  year: "2025"
+  doi: "10.1109/JLT.2025.3589148"
   preprint: "https://arxiv.org/abs/2411.16698"
   pdf: "https://arxiv.org/pdf/2411.16698.pdf"
-  bibtex: |
-    @article{vit2025polarization,
-      title={Universal On-Chip Polarization Handling with Deep Photonic Networks},
-      author={Vit, Aycan Deniz and Rzayev, Ujal and Danis, Bahrem Serhat and Amiri, Ali Najjar and Gorgulu, Kazim and Magden, Emir Salih},
-      journal={Journal of Lightwave Technology},
-      volume={43},
-      number={18},
-      pages={8770--8776},
-      year={2025}
-    }
+
+- id: danis2026intrinsically
+  type: preprint
+  title: "Intrinsically DRC-Compliant Nanophotonic Design via Learned Generative Manifolds"
+  authors: ["Bahrem Serhat Danis", "Demet Baldan Desdemir", "Enes Akcakoca", "Zeynep Ipek Yanmaz", "Gulzade Polat", "Ahmet Onur Dasdemir", "Aytug Aydogan", "Abdullah Magden", "Emir Salih Magden"]
+  venue: "arXiv:2602.03142"
+  year: "2026"
+  preprint: "https://arxiv.org/abs/2602.03142"
+  pdf: "https://arxiv.org/pdf/2602.03142"

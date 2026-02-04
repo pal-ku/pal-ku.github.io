@@ -1,102 +1,361 @@
 {{ define "main" }}
-<div class="max-w-4xl mx-auto px-4 py-8">
+{{/* Pre-process: Map Publication Keys to News Permalink */}}
+{{ $newsMap := dict }}
+{{ range where site.RegularPages "Section" "news" }}
+{{ $link := .Permalink }}
+{{ range .Params.related_publication_ids }}
+{{ $newsMap = merge $newsMap (dict . $link) }}
+{{ end }}
+{{ end }}
+
+<div class="max-w-4xl mx-auto px-4 pt-10 pb-20">
     <h1 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Publications</h1>
 
-    {{ range $.Site.Data.publications }}
-    <div class="py-4 border-b border-gray-200 dark:border-neutral-700">
-        <!-- Title -->
-        <h3 class="text-base font-semibold text-gray-900 dark:text-white leading-snug">
-            {{ .title }}
-        </h3>
+    {{/* Section: Journal Articles and Preprints */}}
+    {{ $journal_preprints := where .Site.Data.publications "type" "in" (slice "journal" "preprint") }}
+    {{ $journal_preprints = sort $journal_preprints "year" "desc" }}
 
-        <!-- Authors -->
-        <p class="mt-1 text-sm text-gray-600 dark:text-neutral-400">
-            {{ delimit .authors ", " ", and " }}
-        </p>
+    {{ if $journal_preprints }}
+    <section class="mb-10">
+        <h2
+            class="text-lg font-bold mb-4 text-gray-800 dark:text-neutral-200 border-b border-gray-200 dark:border-neutral-700 pb-1">
+            Journal Articles</h2>
+        {{ $count := len $journal_preprints }}
+        {{ range $index, $pub := $journal_preprints }}
+        {{ $number := sub $count $index }}
+        {{ $storyLink := index $newsMap $pub.id }}
 
-        <!-- Journal / Venue -->
-        <p class="mt-1 text-sm italic text-gray-500 dark:text-neutral-500">
-            {{ .journal }}{{ with .volume }} {{ . }}{{ end }}{{ with .issue }}({{ . }}){{ end }}{{ with .pages }}: {{ .
-            }}{{ end }}, {{ .year }}
-        </p>
+        {{/* --- DYNAMIC BIBTEX GENERATION --- */}}
+        {{ $formattedAuthors := slice }}
+        {{ range $pub.authors }}
+        {{ $parts := split . " " }}
+        {{ if gt (len $parts) 1 }}
+        {{ $last := index $parts (sub (len $parts) 1) }}
+        {{ $firstParts := first (sub (len $parts) 1) $parts }}
+        {{ $first := delimit $firstParts " " }}
+        {{ $formattedAuthors = $formattedAuthors | append (printf "%s, %s" $last $first) }}
+        {{ else }}
+        {{ $formattedAuthors = $formattedAuthors | append . }}
+        {{ end }}
+        {{ end }}
+        {{ $bibAuthors := delimit $formattedAuthors " and " }}
 
-        <!-- Button Bar -->
-        <div class="flex flex-wrap gap-1 mt-2">
-            {{ $pub := . }}
-            {{ with .doi }}
-            <a href="{{ . }}" target="_blank" class="pub-btn">{{
-                if eq $pub.type "conference" }}Conference{{ else }}Journal{{ end }}</a>
-            {{ end }}
+        {{ $venue := $pub.venue }}
+        {{ if eq $pub.type "preprint" }}
+        {{ if not (findRE "arXiv" $venue) }}
+        {{ $venue = printf "arXiv preprint %s" $venue }}
+        {{ end }}
+        {{ end }}
 
-            {{ with .preprint }}
-            <a href="{{ . }}" target="_blank" class="pub-btn">Preprint</a>
-            {{ end }}
+        {{ $bibtex := printf `@article{%s,
+        title={%s},
+        author={%s},
+        journal={%s},
+        year={%s}` $pub.id $pub.title $bibAuthors $venue $pub.year }}
 
-            {{ with .pdf }}
-            <a href="{{ . }}" target="_blank" class="pub-btn">PDF</a>
-            {{ end }}
+        {{ with $pub.volume }}{{ $bibtex = printf "%s,\n volume={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.issue }}{{ $bibtex = printf "%s,\n number={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.pages }}{{ $bibtex = printf "%s,\n pages={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.doi }}{{ $bibtex = printf "%s,\n doi={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.url }}{{ $bibtex = printf "%s,\n url={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.publisher }}{{ $bibtex = printf "%s,\n publisher={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.month }}{{ $bibtex = printf "%s,\n month={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.address }}{{ $bibtex = printf "%s,\n address={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.note }}{{ $bibtex = printf "%s,\n note={%s}" $bibtex . }}{{ end }}
+        {{ if eq $pub.type "preprint" }}
+        {{ with $pub.preprint }}{{ if not $pub.url }}{{ $bibtex = printf "%s,\n note={%s}" $bibtex . }}{{ end }}{{ end
+        }}
+        {{ end }}
+        {{ $bibtex = printf "%s\n}" $bibtex }}
+        {{/* ---------------------------------- */}}
 
-            {{ with .code }}
-            <a href="{{ . }}" target="_blank" class="pub-btn">Code</a>
-            {{ end }}
+        <div class="pub-entry">
+            <div class="pub-number">{{ $number }}.</div>
+            <div class="pub-content">
+                <div class="pub-title">{{ $pub.title }}</div>
+                <div class="pub-authors">{{ delimit $pub.authors ", " }}</div>
+                <div class="pub-venue">
+                    {{ if eq $pub.type "preprint" }}
+                    Preprint. {{ $pub.venue }} ({{ $pub.year }})
+                    {{ else }}
+                    {{ $pub.venue }}
+                    {{- with $pub.volume }} {{ . }}{{ end }}
+                    {{- with $pub.issue }}({{ . }}){{ end }}
+                    {{- with $pub.pages }}: {{ . }}{{ end }}
+                    ({{ $pub.year }})
+                    {{- with $pub.address }}, {{ . }}{{ end }}
+                    {{- with $pub.note }}. {{ . }}{{ end }}
+                    {{ end }}
+                </div>
+                <div class="pub-buttons">
+                    {{ with $storyLink }}<a href="{{ . }}" tabindex="-1" class="pub-btn pub-btn-story">Read Story</a>{{
+                    end }}
 
-            {{ with .bibtex }}
-            <button onclick="copyBibTeX(this)" data-bibtex="{{ . | htmlEscape }}" class="pub-btn"
-                style="width: 55px;"><span>BibTeX</span></button>
-            {{ end }}
+                    {{ if eq $pub.type "preprint" }}
+                    {{ with $pub.url }}
+                    <a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">Preprint</a>
+                    {{ else }}
+                    {{ with $pub.preprint }}<a href="{{ . }}" target="_blank" tabindex="-1"
+                        class="pub-btn">Preprint</a>{{ end }}
+                    {{ end }}
+                    {{ else }}
+                    {{ with $pub.doi }}
+                    <a href="https://doi.org/{{ . }}" target="_blank" tabindex="-1" class="pub-btn">Journal</a>
+                    {{ else }}
+                    {{ with $pub.url }}<a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">Journal</a>{{ end
+                    }}
+                    {{ end }}
+                    {{ with $pub.preprint }}<a href="{{ . }}" target="_blank" tabindex="-1"
+                        class="pub-btn">Preprint</a>{{ end }}
+                    {{ end }}
+
+                    {{ with $pub.pdf }}<a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">PDF</a>{{ end }}
+                    {{ with $pub.code }}<a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">Code</a>{{ end
+                    }}
+                    <button onclick="copyBibTeX(this)" data-bibtex="{{ $bibtex | htmlEscape }}" tabindex="-1"
+                        class="pub-btn pub-btn-bibtex"><span>BibTeX</span></button>
+                </div>
+            </div>
         </div>
-    </div>
+        {{ end }}
+    </section>
+    {{ end }}
+
+    {{/* Section: Conference Presentations */}}
+    {{ $conferences := where .Site.Data.publications "type" "conference" }}
+    {{ $conferences = sort $conferences "year" "desc" }}
+    {{ if $conferences }}
+    <section>
+        <h2
+            class="text-lg font-bold mb-4 text-gray-800 dark:text-neutral-200 border-b border-gray-200 dark:border-neutral-700 pb-1">
+            Conference Presentations and Posters</h2>
+        {{ $count := len $conferences }}
+        {{ range $index, $pub := $conferences }}
+        {{ $number := sub $count $index }}
+        {{ $storyLink := index $newsMap $pub.id }}
+
+        {{/* --- DYNAMIC BIBTEX GENERATION --- */}}
+        {{ $formattedAuthors := slice }}
+        {{ range $pub.authors }}
+        {{ $parts := split . " " }}
+        {{ if gt (len $parts) 1 }}
+        {{ $last := index $parts (sub (len $parts) 1) }}
+        {{ $firstParts := first (sub (len $parts) 1) $parts }}
+        {{ $first := delimit $firstParts " " }}
+        {{ $formattedAuthors = $formattedAuthors | append (printf "%s, %s" $last $first) }}
+        {{ else }}
+        {{ $formattedAuthors = $formattedAuthors | append . }}
+        {{ end }}
+        {{ end }}
+        {{ $bibAuthors := delimit $formattedAuthors " and " }}
+
+        {{ $bibtex := printf `@inproceedings{%s,
+        title={%s},
+        author={%s},
+        booktitle={%s},
+        journal={%s},
+        year={%s}` $pub.id $pub.title $bibAuthors $pub.venue $pub.venue $pub.year }}
+
+        {{ with $pub.pages }}{{ $bibtex = printf "%s,\n pages={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.doi }}{{ $bibtex = printf "%s,\n doi={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.url }}{{ $bibtex = printf "%s,\n url={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.publisher }}{{ $bibtex = printf "%s,\n publisher={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.month }}{{ $bibtex = printf "%s,\n month={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.address }}{{ $bibtex = printf "%s,\n address={%s}" $bibtex . }}{{ end }}
+        {{ with $pub.note }}{{ $bibtex = printf "%s,\n note={%s}" $bibtex . }}{{ end }}
+        {{ $bibtex = printf "%s\n}" $bibtex }}
+        {{/* ---------------------------------- */}}
+
+        <div class="pub-entry">
+            <div class="pub-number">{{ $number }}.</div>
+            <div class="pub-content">
+                <div class="pub-title">{{ $pub.title }}</div>
+                <div class="pub-authors">{{ delimit $pub.authors ", " }}</div>
+                <div class="pub-venue">
+                    {{ $pub.venue }}
+                    {{- with $pub.volume }} {{ . }}{{ end }}
+                    {{- with $pub.issue }}({{ . }}){{ end }}
+                    {{- with $pub.pages }}: {{ . }}{{ end }}
+                    ({{ $pub.year }})
+                    {{- with $pub.address }}, {{ . }}{{ end }}
+                    {{- with $pub.note }}. {{ . }}{{ end }}
+                </div>
+                <div class="pub-buttons">
+                    {{ with $storyLink }}<a href="{{ . }}" tabindex="-1" class="pub-btn pub-btn-story">Read Story</a>{{
+                    end }}
+                    {{ with $pub.url }}
+                    <a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">Conference</a>
+                    {{ else }}
+                    {{ with $pub.doi }}<a href="https://doi.org/{{ . }}" target="_blank" tabindex="-1"
+                        class="pub-btn">Conference</a>{{ end }}
+                    {{ end }}
+                    {{ with $pub.preprint }}<a href="{{ . }}" target="_blank" tabindex="-1"
+                        class="pub-btn">Preprint</a>{{ end }}
+                    {{ with $pub.pdf }}<a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">PDF</a>{{ end }}
+                    {{ with $pub.code }}<a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">Code</a>{{ end
+                    }}
+                    <button onclick="copyBibTeX(this)" data-bibtex="{{ $bibtex | htmlEscape }}" tabindex="-1"
+                        class="pub-btn pub-btn-bibtex"><span>BibTeX</span></button>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </section>
     {{ end }}
 </div>
 
 <style>
+    .pub-entry {
+        display: flex;
+        gap: 12px;
+        padding: 16px 0;
+        align-items: baseline;
+    }
+
+    .pub-entry+.pub-entry {
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .dark .pub-entry+.pub-entry {
+        border-top-color: #262626;
+    }
+
+    .pub-number {
+        flex-shrink: 0;
+        width: 24px;
+        text-align: right;
+        font-size: 15px;
+        font-weight: 700;
+        color: #000000;
+        line-height: 1.3;
+    }
+
+    .dark .pub-number {
+        color: #ffffff;
+    }
+
+    .pub-content {
+        flex-grow: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .pub-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #000000;
+        line-height: 1.3;
+    }
+
+    .dark .pub-title {
+        color: #ffffff;
+    }
+
+    .pub-authors {
+        font-size: 14px;
+        color: #111111;
+        line-height: 1.4;
+    }
+
+    .dark .pub-authors {
+        color: #d4d4d4;
+    }
+
+    .pub-venue {
+        font-size: 14px;
+        font-style: italic;
+        color: #111111;
+        line-height: 1.4;
+    }
+
+    .dark .pub-venue {
+        color: #a3a3a3;
+    }
+
+    .pub-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 6px;
+    }
+
     .pub-btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         height: 24px;
-        padding: 0 8px;
+        padding: 0 10px;
         font-size: 12px;
         font-weight: 500;
-        color: #000000 !important;
-        border: 1px solid #a3a3a3 !important;
-        border-radius: 4px;
+        color: #111111;
+        border: 1px solid #111111;
+        border-radius: 6px;
         background: transparent;
         cursor: pointer;
-        transition: all 0.15s ease-in-out;
-        box-sizing: border-box;
-        line-height: normal;
-        text-decoration: none !important;
-        outline: none;
+        text-decoration: none;
+        transition: all 0.1s;
+    }
+
+    .dark .pub-btn {
+        color: #d4d4d4;
+        border-color: #d4d4d4;
     }
 
     .pub-btn span {
-        transition: opacity 0.15s ease-in-out;
+        transition: opacity 0.1s ease-in-out;
     }
 
-    /* Focus (Click Release): revert to default transparent */
-    .pub-btn:focus {
-        background-color: transparent !important;
-        border-color: #a3a3a3 !important;
-        color: #000000 !important;
-    }
-
-    /* Active (Mouse Down) & Hover: pure black (Overwrites Focus) */
     .pub-btn:hover,
     .pub-btn:active,
     .pub-btn.copied {
-        background-color: #000000 !important;
-        border-color: #000000 !important;
-        color: #ffffff !important;
+        background: #000000;
+        border-color: #000000;
+        color: #ffffff;
+    }
+
+    .dark .pub-btn:hover,
+    .dark .pub-btn:active,
+    .dark .pub-btn.copied {
+        background: #ffffff;
+        border-color: #ffffff;
+        color: #000000;
+    }
+
+    .pub-btn-bibtex {
+        width: 65px;
+    }
+
+    .pub-btn-story {
+        background: #eff6ff;
+        border-color: #3b82f6;
+        color: #2563eb;
+    }
+
+    .dark .pub-btn-story {
+        background: #171717;
+        border-color: #3b82f6;
+        color: #60a5fa;
+    }
+
+    .pub-btn-story:hover {
+        background: #2563eb;
+        border-color: #2563eb;
+        color: #ffffff;
+    }
+
+    .dark .pub-btn-story:hover {
+        background: #3b82f6;
+        border-color: #3b82f6;
+        color: #ffffff;
     }
 </style>
 
 <script>
-    // --- SETTINGS ---
-    const SYNC_DELAY_MS = -25;  // Delay of TEXT change relative to COLOR revert (can be negative)
-    const FADE_DURATION_MS = 150; // Must match CSS transition duration
-    const AUTO_RESET_DELAY_MS = 1200; // Fixed time when the COLOR reverts
-    // ----------------
+    const SYNC_DELAY_MS = -10;
+    const FADE_DURATION_MS = 100;
+    const AUTO_RESET_DELAY_MS = 1000;
 
     function copyBibTeX(button) {
         const bibContent = button.dataset.bibtex;
@@ -106,30 +365,21 @@
             textSpan.innerText = 'Copied!';
             button.classList.add('copied');
 
-            // --- Reset Sequence ---
-
-            // 1. Color Revert (Fixed Anchor Point)
             setTimeout(() => {
                 button.classList.remove('copied');
             }, AUTO_RESET_DELAY_MS);
 
-            // 2. Text Fade Sequence (shifted by SYNC_DELAY_MS)
             const textSequenceStart = Math.max(0, AUTO_RESET_DELAY_MS + SYNC_DELAY_MS);
 
             setTimeout(() => {
-                // A. Fade Out "Copied!"
                 textSpan.style.opacity = '0';
-
-                // B. Swap Text & Fade In "BibTeX" (after fade duration)
                 setTimeout(() => {
                     textSpan.innerText = 'BibTeX';
                     requestAnimationFrame(() => {
                         textSpan.style.opacity = '1';
                     });
                 }, FADE_DURATION_MS);
-
             }, textSequenceStart);
-
         }).catch(err => {
             console.error('Failed to copy: ', err);
         });
