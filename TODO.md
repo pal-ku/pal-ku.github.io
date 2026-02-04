@@ -19,7 +19,8 @@ This document tracks the ongoing tasks and future improvements for the PAL-KU we
 - [ ] **Mobile Optimization**: Perform a full audit of mobile responsiveness.
 
 ## Technical Tasks
-- [x] **README**: Created `README.md` with instructions for lab members on adding publications and news.
+- [x] **README**: Created `README.md` with instructions for lab members.
+- [x] **Repository Cleanup**: Removed redundant theme development files and branding.
+- [ ] **Library Management**: Mermaid (diagrams) and KaTeX (LaTeX math) have been removed to reduce size. They can be re-added to `themes/blowfish/assets/lib/` if needed in the future.
 - [ ] **SEO**: Comprehensive meta tag and search engine optimization.
 - [ ] **Performance**: Image optimization and lazy loading for faster load times.
-- [ ] **Workflow Documentation**: Create a workflow for adding new content (news, pubs) for lab members.
