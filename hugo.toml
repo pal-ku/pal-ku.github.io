@@ -1,10 +1,13 @@
 baseURL = 'https://pal-ku.github.io/'
 languageCode = 'en-us'
-title = 'PAL-KU | Photonic Architecture Laboratories'
+title = 'PAL-KU'
 theme = 'blowfish'
 
 [params]
-  colorScheme = "blowfish"
+  colorScheme = "slate"
+  logo = "img/logo.png"
+  disableTextInHeader = true
+  highlightCurrentMenuArea = true
   defaultAppearance = "light" 
   autoSwitchAppearance = false
   enableThemeToggle = false
@@ -19,8 +22,13 @@ theme = 'blowfish'
   [params.header]
     layout = "fixed-fill-blur"
 
+  [params.list]
+    layoutBackgroundBlur = false
+    layoutBackgroundHeaderSpace = false
+
   [params.footer]
     showAppearanceSwitcher = false
+
 
 [menu]
   [[menu.main]]
