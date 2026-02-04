@@ -8,7 +8,7 @@ theme = 'blowfish'
   defaultAppearance = "light" 
   autoSwitchAppearance = false
   enableThemeToggle = false
-  mainSections = ["news", "publications", "research"]
+  mainSections = ["news", "publications", "research"] 
   
   # Homepage configuration
   [params.homepage]
