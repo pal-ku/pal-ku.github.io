@@ -29,7 +29,6 @@ theme = 'blowfish'
   [params.footer]
     showAppearanceSwitcher = false
 
-
 [menu]
   [[menu.main]]
     name = "Home"
