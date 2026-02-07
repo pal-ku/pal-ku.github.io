@@ -1,0 +1,15 @@
+{{/*
+faq shortcode
+Renders FAQs in a card grid (2 cols) without images.
+Cards are non-clickable and hide metadata.
+*/}}
+{{ $section := .Site.GetPage "/faq" }}
+{{ $pages := $section.Pages.ByWeight }}
+
+<div class="not-prose max-w-none w-full">
+    <section class="w-full grid gap-4 grid-cols-1 sm:grid-cols-2">
+        {{ range $pages }}
+        {{ partial "article-link/card.html" (dict "Page" . "disableLink" true "hideMetadata" true) }}
+        {{ end }}
+    </section>
+</div>

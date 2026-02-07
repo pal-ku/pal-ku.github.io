@@ -1,0 +1,153 @@
+{{/*
+Local override of themes/blowfish/layouts/partials/article-link/card.html
+
+card.html
+
+Supports:
+- Jazz Mode: "Gradient Stroke" Pricing Tier (Text-heavy, no images by default)
+- Standard Mode: Classic Card with Image Support (Methodology, Blog)
+- FAQ Mode: Clean Text Card
+*/}}
+{{ $disableImageOptimization := site.Store.Get "disableImageOptimization" }}
+{{ $page := . }}
+{{ $jazz := false }}
+{{ $imageClass := "thumbnail_card" }}
+{{ $disableLink := false }}
+{{ $hideMetadata := false }}
+
+{{/* Argument Handling */}}
+{{ if reflect.IsMap . }}
+{{ $page = .Page }}
+{{ $jazz = .jazz | default false }}
+{{ $imageClass = .imageClass | default "thumbnail_card" }}
+{{ $disableLink = .disableLink | default false }}
+{{ $hideMetadata = .hideMetadata | default false }}
+{{ end }}
+
+{{/* Image Logic (Standard for Hugo/Blowfish) */}}
+{{ $featuredURL := "" }}
+{{ if not $page.Params.hideFeatureImage }}
+{{ with $page.Params.featureimage }}
+{{ $asset := resources.Get . }}
+{{ if $asset }}
+{{ $featuredURL = $asset.RelPermalink }}
+{{ else }}
+{{ $featuredURL = . }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{/* Fallback to Resources if no param */}}
+{{ if not $featuredURL }}
+{{ $images := $page.Resources.ByType "image" }}
+{{ with $images.GetMatch "*feature*" }}
+{{ $featuredURL = .RelPermalink }}
+{{ end }}
+{{ end }}
+
+
+{{ if $jazz }}
+{{/*
+MODE 1: RESEARCH THEMES (Gradient Stroke / Tech Spec)
+- Kept strictly text/icon based as per previous design iteration for Research.
+- User said "give me a research themes section that is for now blank",
+but presumably they mean the *list* or content, or just a placeholder.
+Actually, code below renders the card found.
+If user wants "blank", I should perhaps render nothing or a simple placeholder?
+"give me a research themes section that is for now blank" -> I will render a minimal placeholder
+or just keep this design but maybe the user will empty the content files?
+User said: "we're gonna work on the card based approach separately".
+I will render a SIMPLE placeholder if jazz=true, or just keep the current design?
+"give me a research themes section that is for now blank" -> likely means EMPTY the shortcode loop?
+But I am editing card.html.
+I will keep the "Jazz" design available but maybe simpler.
+*/}}
+<div class="relative h-full group isolate">
+    <div
+        class="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500 via-purple-600 to-blue-600 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+    </div>
+    <div class="absolute inset-[1.5px] rounded-[15px] bg-white dark:bg-neutral-950"></div>
+    <article class="relative h-full p-6 flex flex-col z-10">
+        <header class="flex items-center gap-4 mb-6">
+            {{ if $page.Params.icon }}
+            <div
+                class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-2xl text-transparent bg-clip-text bg-gradient-to-br from-red-500 to-blue-600">
+                {{ partial "icon.html" $page.Params.icon }}
+            </div>
+            {{ end }}
+            <h2 class="text-lg font-bold text-neutral-900 dark:text-white leading-tight">
+                {{ $page.Title }}
+            </h2>
+        </header>
+        <div
+            class="w-full h-px bg-gradient-to-r from-neutral-200 via-neutral-100 to-transparent dark:from-neutral-800 dark:via-neutral-900 mb-6">
+        </div>
+
+        {{ if $page.Params.showSummary | default (site.Params.list.showSummary | default false) }}
+        <div class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+            {{ $page.Summary | plainify }}
+        </div>
+        {{ end }}
+
+        {{ if $page.Params.details }}
+        <ul class="space-y-3 mt-auto">
+            {{ range $page.Params.details }}
+            <li class="flex items-start text-xs font-medium text-neutral-500 dark:text-neutral-400">
+                <span class="mr-2 text-blue-500 flex-shrink-0">✓</span>
+                <span>{{ . }}</span>
+            </li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </article>
+</div>
+
+{{ else }}
+{{/*
+MODE 2: STANDARD CARD (Methodology, FAQ, Blog)
+- RESTORED IMAGE SUPPORT (was missing in previous overwrite)
+- Fixed Text Cutoff (removed strict line-clamp or overflow hiding if not needed)
+*/}}
+<article
+    class="article-link--card relative h-full w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-800/50 hover:bg-white dark:hover:bg-neutral-700/50 transition-colors flex flex-col">
+
+    {{/* Image Container (Methodology uses this) */}}
+    {{ with $featuredURL }}
+    <div class="w-full aspect-video relative overflow-hidden {{ $imageClass }}">
+        <img src="{{ . }}" role="presentation" loading="lazy" decoding="async" class="object-cover w-full h-full"
+            alt="{{ $page.Title }}">
+    </div>
+    {{ end }}
+
+    <div class="p-5 flex flex-col flex-grow">
+        <header>
+            {{ if $disableLink }}
+            <h2 class="text-lg font-bold text-neutral-800 dark:text-neutral-100 mb-2">
+                {{ $page.Title | emojify }}
+            </h2>
+            {{ else }}
+            <a href="{{ $page.RelPermalink }}"
+                class="text-lg font-bold text-neutral-800 dark:text-neutral-100 mb-2 hover:underline decoration-2 underline-offset-4">
+                {{ $page.Title | emojify }}
+            </a>
+            {{ end }}
+        </header>
+
+        {{/* Metadata (Date/Time) - Hidden for FAQ/Methodology usually */}}
+        {{ if not $hideMetadata }}
+        <div class="text-xs text-neutral-500 dark:text-neutral-400 mb-2">
+            {{ partial "article-meta/basic.html" $page }}
+        </div>
+        {{ end }}
+
+        {{/* Summary / Content */}}
+        <div class="text-sm text-neutral-600 dark:text-neutral-400 flex-grow">
+            {{ if $page.Params.showSummary | default (site.Params.list.showSummary | default false) }}
+            {{ $page.Summary | plainify }}
+            {{ else }}
+            {{/* If summary is hidden or content needed, straightforward render */}}
+            {{ $page.Summary | plainify }}
+            {{ end }}
+        </div>
+    </div>
+</article>
+{{ end }}

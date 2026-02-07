@@ -1,0 +1,174 @@
+{{/*
+research-themes-full.html
+
+Full-Width "Glassmorphism" Section
+- Background: Absolute <img> with dark overlay
+- Layout: Variable-controlled grid (Standard 4 columns on desktop)
+*/}}
+
+{{/*
+===========================================================================
+--- CONFIGURATION ---
+Adjust these values to control the layout, typography, and spacing.
+You can use any CSS unit (px, rem, em, %, etc.)
+===========================================================================
+*/}}
+
+{{/* 1. GLOBAL SECTION LAYOUT */}}
+{{ $sectionPaddingTop := "70px" }}
+{{ $sectionPaddingBottom := "60px" }}
+{{ $sectionPaddingSides := "32px" }} {{/* Space on far left/right of the grid */}}
+{{ $containerMaxWidth := "none" }} {{/* Overall section width limit */}}
+{{ $sectionTitleMarginBottom := "70px" }} {{/* Space under "Research Themes" header */}}
+{{ $gridGap := "32px" }} {{/* Space between cards */}}
+
+{{/* 2. CARD CONTAINER STYLE */}}
+{{ $cardHeight := "24rem" }} {{/* Minimum uniform height */}}
+{{ $cardPaddingTop := "20px" }} {{/* Space after start of card */}}
+{{ $cardPaddingBottom := "30px" }} {{/* Space before end of card */}}
+{{ $cardPaddingSides := "30px" }} {{/* Side margins inside card */}}
+
+{{/* 3. TAGLINE (SUBHEADER) */}}
+{{ $taglineFontSize := "10px" }}
+{{ $taglineMarginBottom := "2px" }} {{/* Space under tagline */}}
+
+{{/* 4. CARD TITLE (HEADER) */}}
+{{ $cardTitleFontSize := "1.5rem" }}
+{{ $cardTitleMinHeight := "4rem" }} {{/* Standardize space for 2 lines */}}
+
+{{/* 5. SEPARATOR LINE */}}
+{{ $separatorThickness := "2px" }}
+{{ $separatorMarginTop := "10px" }} {{/* Space ABOVE the line */}}
+{{ $separatorMarginBottom := "20px" }} {{/* Space BELOW the line */}}
+
+{{/* 6. BULLET POINTS */}}
+{{ $bulletFontSize := "0.95rem" }}
+{{ $bulletLineHeight := "1.6" }}
+{{ $bulletItemSpacing := "1rem" }} {{/* Vertical space between points */}}
+{{ $bulletIconSize := "14px" }}
+{{ $bulletIconColor := "rgb(96, 165, 250)" }} {{/* Primary-400 for a precise accent */}}
+{{ $bulletIconMarginRight := "14px" }}
+
+{{/* =========================================================================== */}}
+
+{{ $bgImage := resources.Get "img/Gemini_Generated_Image1.jpg" }}
+{{ $bgURL := "" }}
+{{ if $bgImage }}
+{{ $bgURL = $bgImage.RelPermalink }}
+{{ end }}
+
+<div class="relative w-full overflow-hidden border-y border-neutral-200/30 dark:border-neutral-800/30 group"
+    style="padding-top: {{ $sectionPaddingTop }}; padding-bottom: {{ $sectionPaddingBottom }};">
+
+    {{/* Background Image and Overlay */}}
+    <div class="absolute inset-0 z-0">
+        <img src="{{ $bgURL }}" alt="Background" class="w-full h-full object-cover object-center opacity-90"
+            loading="lazy">
+        <div class="absolute inset-0 bg-black/60"></div>
+    </div>
+
+    {{/* Content Container */}}
+    <div class="relative z-10 mx-auto w-full"
+        style="max-width: {{ $containerMaxWidth }}; padding-left: {{ $sectionPaddingSides }} !important; padding-right: {{ $sectionPaddingSides }} !important;">
+
+        {{/* Section Heading */}}
+        <h2 class="text-3xl lg:text-5xl font-extrabold text-white text-center tracking-tight drop-shadow-lg"
+            style="margin-bottom: {{ $sectionTitleMarginBottom }};">
+            Research Themes
+        </h2>
+
+        {{/* Forced Grid Layout */}}
+        <style>
+            @media (min-width: 1024px) {
+                .research-themes-grid {
+                    display: grid !important;
+                    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+                }
+            }
+        </style>
+
+        {{ $themes := slice
+        (dict
+        "tagline" `Foundational Hardware`
+        "title" "Integrated\nPhotonics"
+        "bullets" (slice `Ultra-wideband tapers and splitters` `Ultra-low-loss and broadband crossings` `Universal
+        on-chip
+        polarization handling`)
+        )
+        (dict
+        "tagline" `Neural Architectures`
+        "title" "Photonic AI \nand Networks"
+        "bullets" (slice `Deep photonic network architectures` `Learned generative manifolds for nanophotonic design`
+        `Neural-network-integrated photonics`)
+        )
+        (dict
+        "tagline" `Computational Photonics`
+        "title" "Inverse Design \n and Optimization"
+        "bullets" (slice `On-chip arbitrary dispersion engineering` `Data-driven eigenmode expansion` `Optimization of
+        photonic functional blocks`)
+        )
+        (dict
+        "tagline" `CMOS-Compatible Systems`
+        "title" "Scalable\nPhotonic Integration"
+        "bullets" (slice `Intrinsically DRC-compliant design` `Layout-aware and fab-tolerant photonic systems` `Scalable
+        nanophotonic devices and systems`)
+        )
+        }}
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full research-themes-grid"
+            style="gap: {{ $gridGap }};">
+
+            {{ range $themes }}
+            <div class="relative rounded-xl border border-white/10 flex flex-col justify-start group/card cursor-default transition-all duration-500 hover:-translate-y-2 overflow-hidden bg-white/5 backdrop-blur-xl shadow-2xl text-left"
+                style="padding-top: {{ $cardPaddingTop }}; padding-bottom: {{ $cardPaddingBottom }}; padding-left: {{ $cardPaddingSides }}; padding-right: {{ $cardPaddingSides }}; min-height: {{ $cardHeight }};">
+
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500">
+                </div>
+
+                <div class="relative z-10 flex flex-col items-start w-full">
+
+                    {{/* Tagline */}}
+                    <div class="font-bold tracking-[0.2em] uppercase text-primary-400 opacity-90"
+                        style="font-size: {{ $taglineFontSize }}; margin-bottom: {{ $taglineMarginBottom }};">
+                        {{ .tagline }}
+                    </div>
+
+                    {{/* Card Title */}}
+                    <h3 class="font-bold text-white leading-tight drop-shadow-md flex items-start"
+                        style="font-size: {{ $cardTitleFontSize }}; min-height: {{ $cardTitleMinHeight }}; white-space: pre-line;">
+                        {{- .title -}}
+                    </h3>
+
+                    {{/* Separator */}}
+                    <div class="w-full"
+                        style="height: {{ $separatorThickness }}; background-color: rgba(255,255,255,0.8); margin-top: {{ $separatorMarginTop }}; margin-bottom: {{ $separatorMarginBottom }};">
+                    </div>
+
+                    {{/* Bullet Points */}}
+                    <ul class="list-none w-full font-light text-white"
+                        style="font-size: {{ $bulletFontSize }}; line-height: {{ $bulletLineHeight }};">
+                        {{ range $index, $bullet := .bullets }}
+                        <li class="flex items-start"
+                            style="{{ if ne $index 0 }}margin-top: {{ $bulletItemSpacing }};{{ end }}">
+
+                            {{/* Clean Chevron Icon - Matches Tagline Color */}}
+                            <div class="shrink-0 flex items-center justify-start"
+                                style="width: calc({{ $bulletIconSize }} + {{ $bulletIconMarginRight }}); height: calc(1em * {{ $bulletLineHeight }});">
+                                <svg width="{{ $bulletIconSize }}" height="{{ $bulletIconSize }}" viewBox="0 0 24 24"
+                                    fill="none" stroke="{{ $bulletIconColor }}" stroke-width="3.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </div>
+
+                            <span class="opacity-95">{{ $bullet }}</span>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
