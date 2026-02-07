@@ -1,6 +1,6 @@
 baseURL = 'https://pal-ku.github.io/'
 languageCode = 'en-us'
-title = 'PAL-KU'
+title = 'PAL'
 theme = 'blowfish'
 
 [params]
@@ -12,19 +12,31 @@ theme = 'blowfish'
   autoSwitchAppearance = false
   enableThemeToggle = false
   mainSections = ["news", "publications", "research"] 
+
+  [params.author]
+    name = "Photonic Architecture Laboratories"
+    headline = ""
+    image = "img/logo.png"
   
   # Homepage configuration
   [params.homepage]
-    layout = "profile"
+    layout = "background"
+    homepageImage = "img/homepage/hero.png"
+    layoutBackgroundBlur = true
     showRecent = true
     showRecentItems = 5
+    cardView = true
+    cardViewScreenWidth = true
 
   [params.header]
     layout = "fixed-fill-blur"
 
   [params.list]
-    layoutBackgroundBlur = false
+    layoutBackgroundBlur = true
     layoutBackgroundHeaderSpace = false
+    cardView = true
+    cardViewScreenWidth = true
+    showCards = true
 
   [params.footer]
     showAppearanceSwitcher = false

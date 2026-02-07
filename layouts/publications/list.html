@@ -8,9 +8,18 @@
 {{ end }}
 {{ end }}
 
-<div class="max-w-4xl mx-auto px-4 pt-10 pb-20">
-    <h1 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Publications</h1>
+{{/* Header - Aligned with Theme Standard */}}
+<header class="mb-10">
+    {{ if .Params.showBreadcrumbs | default (site.Params.list.showBreadcrumbs | default false) }}
+    {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+    <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        {{ partial "article-meta/list.html" (dict "context" . "scope" "single") }}
+    </div>
+</header>
 
+<div class="max-w-4xl mx-0">
     {{/* Section: Journal Articles and Preprints */}}
     {{ $journal_preprints := where .Site.Data.publications "type" "in" (slice "journal" "preprint") }}
     {{ $journal_preprints = sort $journal_preprints "year" "desc" }}

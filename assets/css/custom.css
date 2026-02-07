@@ -4,12 +4,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 * {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
 }
 
-/* 2. Layout Stability - Always show scrollbar */
 html {
-    overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  overflow-y: scroll !important;
+}
+
+body {
+  position: relative;
 }
 
 /* 3. Logo Size */
@@ -17,52 +21,72 @@ html {
 .main-menu .logo img,
 img.logo,
 .logo img {
-    max-height: 100px !important;
-    max-width: 130px !important;
-    height: auto !important;
-    width: auto !important;
+  max-height: 100px !important;
+  max-width: 130px !important;
+  height: auto !important;
+  width: auto !important;
 }
 
 /* 4. Header Shadow & Blur Customization */
-/* This targets the fixed-fill-blur container */
 #menu-blur {
-    /* Force a neutral white background with transparency so blur is visible */
-    background-color: rgba(255, 255, 255, 0.7) !important;
-    /* Remove any theme gradients */
-    background-image: none !important;
-    /* Ensure the blur and shallow shadow is applied */
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    /* Apply the user's requested strong shadow here */
-    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.18) !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  background-image: none !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.18) !important;
 }
 
 /* 5. Tighter publication spacing */
 .pub-entry {
-    padding: 10px 0 !important;
+  padding: 10px 0 !important;
 }
 
 /* 6. "Read Story" Button - Blue Accent */
 .pub-btn-story {
-    background: rgba(59, 130, 246, 0.1) !important;
-    border-color: rgb(59, 130, 246) !important;
-    color: rgb(37, 99, 235) !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+  border-color: rgb(59, 130, 246) !important;
+  color: rgb(37, 99, 235) !important;
 }
 
 .dark .pub-btn-story {
-    background: rgba(59, 130, 246, 0.15) !important;
-    border-color: rgb(96, 165, 250) !important;
-    color: rgb(96, 165, 250) !important;
+  background: rgba(59, 130, 246, 0.15) !important;
+  border-color: rgb(96, 165, 250) !important;
+  color: rgb(96, 165, 250) !important;
 }
 
 .pub-btn-story:hover {
-    background: rgb(59, 130, 246) !important;
-    border-color: rgb(59, 130, 246) !important;
-    color: white !important;
+  background: rgb(59, 130, 246) !important;
+  border-color: rgb(59, 130, 246) !important;
+  color: white !important;
 }
 
 .dark .pub-btn-story:hover {
-    background: rgb(96, 165, 250) !important;
-    border-color: rgb(96, 165, 250) !important;
-    color: rgb(17, 24, 39) !important;
+  background: rgb(96, 165, 250) !important;
+  border-color: rgb(96, 165, 250) !important;
+  color: rgb(17, 24, 39) !important;
+}
+
+/* 7. Methodology Card Images */
+.methodology-card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  min-height: auto;
+}
+
+/* 8. Full-Width Breakout Utility - Capped to 100% to prevent scrollbar issues */
+.full-width-breakout {
+  width: 100% !important;
+  position: relative !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 9. Sticky Header Breakout - Centered Full Width (no position override) */
+.header-breakout {
+  width: 100vw !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
 }
