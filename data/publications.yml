@@ -28,6 +28,295 @@
 #   pdf:       Direct PDF download link, can be arxiv or self-hosted document on github
 #   code:      GitHub/Code link
 
+- id: "dogru2020randomlaser"
+  type: journal
+  title: "High-Q, directional and self-assembled random laser emission using spatially localized feedback via cracks"
+  authors: ["Itir Bakis Dogru-Yuksel", "Mertcan Han", "Gregor Pirnat", "Emir Salih Magden", "Erkan Senses", "Matjaž Humar", "Sedat Nizamoglu"]
+  venue: "APL Photonics"
+  volume: "5"
+  issue: "10"
+  pages: "106105"
+  year: "2020"
+  doi: "10.1063/5.0020528"
+  url: "https://doi.org/10.1063/5.0020528"
+
+- id: li2020silicondatalink
+  type: journal
+  title: "A silicon photonic data link with a monolithic erbium-doped laser"
+  authors: ["Nanxi Li", "Ming Xin", "Zhan Su", "Emir Salih Magden", "Neetesh Singh", "Jelena Notaros", "Erman Timurdogan", "Purnawirman Purnawirman", "Jonathan DB Bradley", "Michael R Watts"]
+  venue: "Scientific Reports"
+  volume: "10"
+  issue: "1"
+  pages: "1-9"
+  year: "2020"
+  doi: "10.1038/s41598-020-57928-5"
+  url: "https://doi.org/10.1038/s41598-020-57928-5"
+
+- id: singh2020ofs
+  type: journal
+  title: "Silicon Photonics Optical Frequency Synthesizer"
+  authors: ["Neetesh Singh", "Ming Xin", "Nanxi Li", "Diedrik Vermeulen", "Alfonso Ruocco", "Emir Salih Magden", "Katia Shtyrkova", "Erich Ippen", "Franz X. Kärtner", "Michael R. Watts"]
+  venue: "Laser & Photonics Reviews"
+  pages: "1900449"
+  volume: "14"
+  issue: "7"
+  year: "2020"
+  doi: "10.1002/lpor.201900449"
+  url: "https://doi.org/10.1002/lpor.201900449"
+
+- id: xin2019opticalfreqsynth
+  type: journal
+  title: "Optical frequency synthesizer with an integrated erbium tunable laser"
+  authors: ["Ming Xin", "Nanxi Li", "Neetesh Singh", "Alfonso Ruocco", "Zhan Su", "Emir Salih Magden", "Jelena Notaros", "Diedrik Vermeulen", "Erich P Ippen", "Michael R Watts", "Franz X Kärtner"]
+  venue: "Light: Science & Applications"
+  publisher: "Nature"
+  volume: "8"
+  issue: "1"
+  pages: "1-8"
+  year: "2019"
+  doi: "10.1038/s41377-019-0233-z"
+  url: "https://doi.org/10.1038/s41377-019-0233-z"
+
+
+- id: notaros2019opticalphasedarray
+  type: journal
+  title: "CMOS-Compatible Optical Phased Array Powered by a Monolithically-Integrated Erbium Laser"
+  authors: ["Jelena Notaros", "Nanxi Li", "Christopher V Poulton", "Zhan Su", "Matthew J Byrd", "Emir Salih Magden", "Erman Timurdogan", "Christopher Baiocco", "Nicholas M Fahrenkopf", "Michael R Watts"]
+  venue: "Journal of Lightwave Technology"
+  publisher: "Optica"
+  volume: "37"
+  issue: "24"
+  pages: "5982-5987"
+  year: "2019"
+  doi: "10.1109/JLT.2019.2944607"
+  url: "https://doi.org/10.1109/JLT.2019.2944607"
+
+- id: shtyrkova2019qswitch
+  type: journal
+  title: "Integrated CMOS-compatible Q-switched mode-locked lasers at 1900nm with an on-chip artificial saturable absorber"
+  authors: ["Katia Shtyrkova", "Patrick T Callahan", "Nanxi Li", "Emir Salih Magden", "Alfonso Ruocco", "Diedrik Vermeulen", "Franz X Kärtner", "Michael R Watts", "Erich P Ippen"]
+  venue: "Optics Express"
+  publisher: "Optica"
+  volume: "27"
+  issue: "3"
+  pages: "3542-3556"
+  year: "2019"
+  doi: "10.1364/OE.27.003542"
+  url: "https://doi.org/10.1364/OE.27.003542"
+
+- id: magden2018dichroicfilters
+  type: journal
+  title: "Transmissive silicon photonic dichroic filters with spectrally selective waveguides"
+  authors: ["Emir Salih Magden", "Nanxi Li", "Manan Raval", "Christopher V. Poulton", "Alfonso Ruocco", "Neetesh Singh", "Diedrik Vermeulen", "Erich P. Ippen", "Leslie A. Kolodziejski", "Michael R. Watts"]
+  venue: "Nature Communications"
+  publisher: "Nature"
+  volume: "9"
+  pages: "3009"
+  year: "2018"
+  doi: "10.1038/s41467-018-05287-1"
+  url: "https://doi.org/10.1038/s41467-018-05287-1"
+
+- id: magden2018frequencyspectroscopy
+  type: journal
+  title: "Frequency Domain Spectroscopy in Rare-Earth-Doped Gain Media"
+  authors: ["Emir Salih Magden", "Patrick Callahan", "Nanxi Li", "Jonathan DB Bradley", "Neetesh Singh", "Alfonso Ruocco", "Leslie A. Kolodziejski", "Erich P. Ippen", "Michael R. Watts"]
+  venue: "IEEE Journal of Selected Topics in Quantum Electronics"
+  volume: "24"
+  issue: "5"
+  pages: "1-10"
+  year: "2018"
+  doi: "10.1109/JSTQE.2018.2805807"
+  url: "https://doi.org/10.1109/JSTQE.2018.2805807"
+
+- id: li2018erbiumtunablelaser
+  type: journal
+  title: "Monolithically integrated erbium-doped tunable laser on a CMOS-compatible silicon photonics platform"
+  authors: ["Nanxi Li", "Diedrik Vermeulen", "Zhan Su", "Emir Salih Magden", "Ming Xin", "Neetesh Singh", "Alfonso Ruocco", "Jelena Notaros", "Christopher V Poulton", "Erman Timurdogan", "Christopher Baiocco", "Michael R Watts"]
+  venue: "Optics Express"
+  publisher: "Optica"
+  volume: "26"
+  issue: "13"
+  pages: "16200-16211"
+  year: "2018"
+  doi: "10.1364/OE.26.016200"
+  url: "https://doi.org/10.1364/OE.26.016200"
+
+- id: su2018microtrench
+  type: journal
+  title: "High-Q-factor Al2O3 micro-trench cavities integrated with silicon nitride waveguides on silicon"
+  authors: ["Zhan Su", "Nanxi Li", "Henry C. Frankis", "Emir Salih Magden", "Thomas N. Adam", "Gerald Leake", "Douglas Coolbaugh", "Jonathan DB Bradley", "Michael R. Watts"]
+  venue: "Optics Express"
+  publisher: "Optica"
+  volume: "26"
+  issue: "9"
+  pages: "11161-11170"
+  year: "2018"
+  doi: "10.1364/OE.26.011161"
+  url: "https://doi.org/10.1364/OE.26.011161"
+
+
+- id: li2018holmiumlasers
+  type: journal
+  title: "Broadband 2-µm emission on silicon chips: monolithically integrated Holmium lasers"
+  authors: ["Nanxi Li", "Emir Salih Magden", "Zhan Su", "Neetesh Singh", "Alfonso Ruocco", "Ming Xin", "Matthew Byrd", "Patrick T. Callahan", "Jonathan D. B. Bradley", "Christopher Baiocco", "Diedrik Vermeulen", "Michael R. Watts"]
+  venue: "Optics Express"
+  publisher: "Optica"
+  volume: "26"
+  issue: "3"
+  pages: "2220-2230"
+  year: "2018"
+  doi: "10.1364/OE.26.002220"
+  url: "https://doi.org/10.1364/OE.26.002220"
+
+
+- id: singh2018supercontinuum
+  type: journal
+  title: "Octave-spanning coherent supercontinuum generation in silicon on insulator from 1.06 μm to beyond 2.4 μm"
+  authors: ["Neetesh Singh", "Ming Xin", "Diedrik Vermeulen", "Katia Shtyrkova", "Nanxi Li", "Patrick T Callahan", "Emir Salih Magden", "Alfonso Ruocco", "Nicholas Fahrenkopf", "Christopher Baiocco", "Bill P-P Kuo", "Stojan Radic", "Erich Ippen", "Franz X Kärtner", "Michael R Watts"]
+  venue: "Light: Science & Applications"
+  publisher: "Nature"
+  volume: "7"
+  issue: "1"
+  pages: "17131"
+  year: "2018"
+  doi: "10.1038/lsa.2017.131"
+  url: "https://doi.org/10.1038/lsa.2017.131"
+
+- id: li2017reliablephotonic
+  type: journal
+  title: "Reliable Integrated Photonic Light Sources Using Curved Al2O3:Er3+ Distributed Feedback Lasers"
+  authors: ["Nanxi Li", "Gurpreet Singh", "Emir Salih Magden", "Zhan Su", "Neetesh Singh", "Michele Moresco", "Gerald Leake", "Jonathan DB Bradley", "Michael R. Watts"]
+  venue: "IEEE Photonics Journal"
+  publisher: "IEEE"
+  volume: "9"
+  issue: "4"
+  pages: "1-9"
+  year: "2017"
+  doi: "10.1109/JPHOT.2017.2723947"
+  url: "https://doi.org/10.1109/JPHOT.2017.2723947"
+
+
+- id: magden2017dfblaser
+  type: journal
+  title: "Monolithically-integrated distributed feedback laser compatible with CMOS processing"
+  authors: ["Emir Salih Magden", "Nanxi Li", "Jonathan DB Bradley", "Neetesh Singh", "Alfonso Ruocco", "Gale S Petrich", "Gerald Leake", "Douglas D Coolbaugh", "Erich P Ippen", "Michael R Watts", "Leslie A Kolodziejski"]
+  venue: "Optics Express"
+  publisher: "Optica"
+  volume: "25"
+  issue: "15"
+  pages: "18058-18065"
+  year: "2017"
+  doi: "10.1364/OE.25.018058"
+  url: "https://doi.org/10.1364/OE.25.018058"
+
+
+- id: li2017ultranarrowlinewidth
+  type: journal
+  title: "Ultra-narrow-linewidth Al2O3:Er3+ lasers with a wavelength-insensitive waveguide design on a wafer-scale silicon nitride platform"
+  authors: ["Nanxi Li", "Emir Salih Magden", "Gurpreet Singh", "Neetesh Singh", "Anna Baldycheva", "Ehsan Shah Hosseini", "Jie Sun", "Michele Moresco", "Thomas N Adam", "Gerard Leake", "Douglas Coolbaugh", "Jonathan DB Bradley", "Michael R Watts"]
+  venue: "Optics Express"
+  publisher: "Optica"
+  volume: "25"
+  issue: "12"
+  pages: "13705-13713"
+  year: "2017"
+  doi: "10.1364/OE.25.013705"
+  url: "https://doi.org/10.1364/OE.25.013705"
+
+- id: li2017athermalsync
+  type: journal
+  title: "Athermal synchronization of laser source with WDM filter in a silicon photonics platform"
+  authors: ["Nanxi Li", "Zhan Su", "Purnawirman", "Emir Salih Magden", "Christopher V Poulton", "Alfonso Ruocco", "Neetesh Singh", "Matthew J Byrd", "Jonathan DB Bradley", "Gerald Leake", "Michael R Watts"]
+  venue: "Applied Physics Letters"
+  volume: "110"
+  issue: "21"
+  pages: "211105"
+  year: "2017"
+  doi: "10.1063/1.4984022"
+  url: "https://doi.org/10.1063/1.4984022"
+
+
+- id: purnawirman2017wdm
+  type: journal
+  title: "Wavelength division multiplexed light source monolithically integrated on a silicon photonics platform"
+  authors: ["Purnawirman", "Nanxi Li", "Emir Salih Magden", "Gurpreet Singh", "Michele Moresco", "Thomas N Adam", "Gerard Leake", "Douglas Coolbaugh", "Jonathan DB Bradley", "Michael R Watts"]
+  venue: "Optics Letters"
+  publisher: "Optica"
+  volume: "42"
+  issue: "9"
+  pages: "1772-1775"
+  year: "2017"
+  doi: "10.1364/OL.42.001772"
+  url: "https://doi.org/10.1364/OL.42.001772"
+
+- id: li2017thuliumlasers
+  type: journal
+  title: "High-power thulium lasers on a silicon photonics platform"
+  authors: ["Nanxi Li", "Purnawirman", "Zhan Su", "Emir Salih Magden", "Patrick T Callahan", "Katia Shtyrkova", "Ming Xin", "Alfonso Ruocco", "Christopher Baiocco", "Erich P Ippen", "Franz X Kaertner", "Jonathan DB Bradley", "Diedrik Vermeulen", "Michael R Watts"]
+  venue: "Optics Letters"
+  publisher: "Optica"
+  volume: "42"
+  issue: "6"
+  pages: "1181-1184"
+  year: "2017"
+  doi: "10.1364/OL.42.001181"
+  url: "https://doi.org/10.1364/OL.42.001181"
+
+- id: su2016thuliummicrocavity
+  type: journal
+  title: "Ultra-compact and low-threshold thulium microcavity laser monolithically integrated on silicon"
+  authors: ["Zhan Su", "Nanxi Li", "E Salih Magden", "Matthew Byrd", "Thomas N Adam", "Gerald Leake", "Douglas Coolbaugh", "Jonathan DB Bradley", "Michael R Watts"]
+  venue: "Optics Letters"
+  publisher: "Optica"
+  volume: "41"
+  issue: "24"
+  pages: "5708-5711"
+  year: "2016"
+  doi: "10.1364/OL.41.005708"
+  url: "https://doi.org/10.1364/OL.41.005708"
+
+- id: li2016cbandfiberlaser
+  type: journal
+  title: "C-band swept wavelength erbium-doped fiber laser with a high-Q tunable interior-ridge silicon microring cavity"
+  authors: ["Nanxi Li", "Erman Timurdogan", "Christopher V Poulton", "Matthew Byrd", "Emir Salih Magden", "Zhan Su", "Gerald Leake", "Douglas D Coolbaugh", "Diedrik Vermeulen", "Michael R Watts"]
+  venue: "Optics Express"
+  publisher: "Optica"
+  volume: "24"
+  issue: "20"
+  pages: "22741-22748"
+  year: "2016"
+  doi: "10.1364/OE.24.022741"
+  url: "https://doi.org/10.1364/OE.24.022741"
+
+
+- id: singh2016resonanterbium
+  type: journal
+  title: "Resonant pumped erbium-doped waveguide lasers using distributed Bragg reflector cavities"
+  authors: ["Gurpreet Singh", "Jonathan DB Bradley", "Nanxi Li", "Emir Salih Magden", "Michele Moresco", "Thomas N Adam", "Gerald Leake", "Douglas Coolbaugh", "Michael R Watts"]
+  venue: "Optics Letters"
+  publisher: "Optica"
+  volume: "41"
+  issue: "6"
+  pages: "1189-1192"
+  year: "2016"
+  doi: "10.1364/OL.41.001189"
+  url: "https://doi.org/10.1364/OL.41.001189"
+
+
+- id: demeo2014gasbtpv
+  type: journal
+  title: "GaSb thermophotovoltaic cells grown on GaAs substrate using the interfacial misfit array method"
+  authors: ["Dante DeMeo", "Corey Shemelya", "Chandler Downs", "Abigail Licht", "Emir Salih Magden", "Tom Rotter", "Chetan Dhital", "Stephen Wilson", "Ganesh Balakrishnan", "Thomas E Vandervelde"]
+  venue: "Journal of Electronic Materials"
+  volume: "43"
+  issue: "4"
+  pages: "902-908"
+  year: "2014"
+  doi: "10.1007/s11664-014-3029-1"
+  url: "https://doi.org/10.1007/s11664-014-3029-1"
+
+
+
 - id: "oktay2025experimental"
   type: conference
   title: "Experimental Demonstration of Ultra-Wideband Tapers, Splitters and Crossings with sub-0.1dB Loss Through Computationally Efficient and Data-Driven Eigenmode Expansion"
