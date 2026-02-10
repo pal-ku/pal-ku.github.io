@@ -111,11 +111,32 @@ MODE 2: STANDARD CARD (Methodology, FAQ, Blog)
     class="article-link--card relative h-full w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-800/50 hover:bg-white dark:hover:bg-neutral-700/50 transition-colors flex flex-col">
 
     {{/* Image Container (Methodology uses this) */}}
-    {{ with $featuredURL }}
+    {{ with $page.Params.featureimage }}
+    {{ $asset := resources.Get . }}
+    {{ if $asset }}
+    {{ $optimized := partial "optimize-image.html" (dict "img" $asset "type" "card") }}
     <div class="w-full aspect-video relative overflow-hidden {{ $imageClass }}">
-        <img src="{{ . }}" role="presentation" loading="lazy" decoding="async" class="object-cover w-full h-full"
+        <img src="{{ $optimized.Placeholder.RelPermalink }}" data-src="{{ $optimized.WebP.RelPermalink }}"
+            role="presentation" onload="initProgressiveSwap(this)" decoding="async"
+            class="progressive-img nozoom object-cover w-full h-full" alt="{{ $page.Title }}">
+    </div>
+    {{ else }}
+    <div class="w-full aspect-video relative overflow-hidden {{ $imageClass }}">
+        <img src="{{ . }}" role="presentation" loading="lazy" decoding="async" class="nozoom object-cover w-full h-full"
             alt="{{ $page.Title }}">
     </div>
+    {{ end }}
+    {{ else }}
+    {{/* Fallback to Resources if no param */}}
+    {{ $images := $page.Resources.ByType "image" }}
+    {{ with $images.GetMatch "*feature*" }}
+    {{ $optimized := partial "optimize-image.html" (dict "img" . "type" "card") }}
+    <div class="w-full aspect-video relative overflow-hidden {{ $imageClass }}">
+        <img src="{{ $optimized.Placeholder.RelPermalink }}" data-src="{{ $optimized.WebP.RelPermalink }}"
+            role="presentation" onload="initProgressiveSwap(this)" decoding="async"
+            class="progressive-img nozoom object-cover w-full h-full" alt="{{ $page.Title }}">
+    </div>
+    {{ end }}
     {{ end }}
 
     <div class="p-5 flex flex-col flex-grow">

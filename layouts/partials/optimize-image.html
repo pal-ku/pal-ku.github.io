@@ -1,0 +1,24 @@
+{{/*
+optimize-image.html
+Processes an image resource into WebP and creates an LQIP placeholder.
+Arguments: (dict "img" $resource "type" "hero"|"card")
+*/}}
+
+{{ $img := .img }}
+{{ $type := .type | default "card" }}
+{{ $webp := "" }}
+{{ $placeholder := "" }}
+
+{{ if $img }}
+{{/* 1. Generate WebP Version */}}
+{{ if eq $type "hero" }}
+{{ $webp = $img.Resize "1600x webp q85" }}
+{{ else }}
+{{ $webp = $img.Resize "800x webp q85" }}
+{{ end }}
+
+{{/* 2. Generate Placeholder */}}
+{{ $placeholder = $img.Resize "60x webp q20" }}
+{{ end }}
+
+{{ return (dict "WebP" $webp "Placeholder" $placeholder) }}

@@ -1,0 +1,11 @@
+# Lab Members List
+# Usage: {{< people >}}
+# Photos should be placed in assets/img/people/ and named as listed below.
+
+- name: "Your Name"
+  affiliation: "Principal Investigator"
+  image: "img/people/pi_placeholder.jpg" # Example path relative to assets/
+
+# - name: "Member Name"
+#   affiliation: "PhD Candidate"
+#   image: "img/people/member.jpg"
