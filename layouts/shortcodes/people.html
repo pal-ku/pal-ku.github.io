@@ -1,0 +1,25 @@
+{{ $people := .Site.Data.people }}
+
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 my-10">
+    {{ range $people }}
+    <div class="flex flex-col items-center text-center group">
+        <div
+            class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-4 border-2 border-neutral-200 dark:border-neutral-800 transition-colors group-hover:border-primary-500">
+            {{ $img := resources.Get .image }}
+            {{ if $img }}
+            {{ $optimized := partial "optimize-image.html" (dict "img" $img "type" "card") }}
+            <img src="{{ $optimized.Placeholder.RelPermalink }}" data-src="{{ $optimized.WebP.RelPermalink }}"
+                alt="{{ .name }}" class="progressive-img nozoom w-full h-full object-cover"
+                onload="initProgressiveSwap(this)" decoding="async">
+            {{ else }}
+            <div
+                class="w-full h-full bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center text-neutral-400">
+                {{ partial "icon.html" "user" }}
+            </div>
+            {{ end }}
+        </div>
+        <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-100 mb-0">{{ .name }}</h3>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-0">{{ .affiliation }}</p>
+    </div>
+    {{ end }}
+</div>

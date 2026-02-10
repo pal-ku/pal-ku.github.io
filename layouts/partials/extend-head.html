@@ -12,4 +12,36 @@
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
     }
+
+    /* Progressive Image Loading */
+    .progressive-img {
+        filter: blur(12px);
+        transition: none;
+    }
+
+    .progressive-img.loaded {
+        filter: blur(0);
+        transition: filter 0.4s ease-in-out;
+    }
 </style>
+<script>
+    function initProgressiveSwap(img) {
+        if (img.classList.contains('loaded') || !img.dataset.src) return;
+
+        const full = new Image();
+        full.src = img.dataset.src;
+
+        if (full.complete) {
+            // Cached → swap instantly with no transition
+            img.src = full.src;
+            img.style.transition = 'none';
+            img.classList.add('loaded');
+        } else {
+            // Not cached → sharpen only after load
+            full.onload = () => {
+                img.classList.add('loaded');
+                img.src = full.src;
+            };
+        }
+    }
+</script>
