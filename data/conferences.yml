@@ -1,0 +1,545 @@
+# PAL-KU Conference Presentations
+# ==============================
+#
+# REQUIRED FIELDS:
+#   id:        Unique handle/BibTeX key (e.g., "oktay2025experimental")
+#   type:      "conference" (maps to @inproceedings)
+#   title:     Full paper title
+#   authors:   List of names ["First Last", "First Last"]
+#   venue:     Conference name
+#   year:      Year of publication
+#
+# OPTIONAL METADATA (Appears in BibTeX and venue line):
+#   pages:     Page numbers OR Paper ID (e.g., "ck_2_2")
+#   publisher: e.g., "Optica Publishing Group"
+#   month:     e.g., "Jun"
+#   address:   Conference location (e.g., "Munich, Germany")
+#   order:     Custom sorting order within the same year (1 is first, 2 is second, etc.).
+#   note:      Additional info
+#
+# LINK FIELDS:
+#   doi:       The DOI string OR full URL - automatically handled in list.html.
+#   url:       Full direct link (Required for conferences if DOI is pending/inactive).
+#   preprint:  Link to arXiv/Preprint landing page
+#   pdf:       Direct PDF download link
+#   code:      GitHub/Code link
+
+- id: "danis2026learned"
+  type: conference
+  title: "Learned manifold reparameterization for DRC-compatible inverse design in silicon photonics"
+  authors: ["Bahrem Serhat Danis", "Demet Baldan Desdemir", "Enes Akcakoca", "Zeynep İpek Yanmaz", "Gulzade Polat", "Ahmet Onur Dasdemir", "Aytug Aydogan", "Victor Minden", "Abdullah Magden", "Emir Salih Magden"]
+  venue: "SPIE Photonics Europe"
+  note: "Machine Learning in Photonics II, paper 14104-21"
+  year: "2026"
+  month: "Apr"
+  url: "https://spie.org/photonics-europe/presentation/Learned-manifold-reparameterization-for-DRC-compatible-inverse-design-in-silicon/14104-21"
+
+- id: "rzayev2026reconfigurable"
+  type: conference
+  title: "Reconfigurable Deep Photonic Recurrent Networks for Optical Information Processing"
+  authors: ["Ujal Rzayev", "Can Dimici", "Bahrem Serhat Danis", "Aycan Deniz Vit", "Arda Tuna Vit", "Enes Akcakoca", "Zeynep İpek Yanmaz", "Emir Salih Magden"]
+  venue: "SPIE Photonics Europe"
+  note: "Machine Learning in Photonics II, paper 14104-40"
+  year: "2026"
+  month: "Apr"
+  url: "https://spie.org/photonics-europe/presentation/Reconfigurable-Deep-Photonic-Recurrent-Networks-for-Optical-Information-Processing/14104-40"
+
+- id: "danis2026design"
+  type: conference
+  title: "Design rule-compliant inverse design for silicon photonics using deep generative networks with embedded length-scale constraints"
+  authors: ["Bahrem Serhat Danis", "Demet Baldan Desdemir", "Enes Akcakoca", "Ahmet Onur Dasdemir", "Victor Minden", "Aytug Aydogan", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "Photonic and Phononic Properties of Engineered Nanostructures XVI, paper 13909-38"
+  year: "2026"
+  month: "Jan"
+  url: "https://spie.org/photonics-west/presentation/Design-rule-compliant-inverse-design-for-silicon-photonic-using-deep/13909-38"
+
+- id: "fakhimi2026transformer"
+  type: conference
+  title: "Transformer-based learned dimensional collapse for silicon photonic inverse design"
+  authors: ["Mohammad Javad Fakhimi", "Ahmet Onur Dasdemir", "Furkan Aykut Sarikamis", "Berna Kiraz", "Alper Kiraz", "Abdullah Magden", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "Physics and Simulation of Optoelectronic Devices XXXIV, paper 13890-70"
+  year: "2026"
+  month: "Jan"
+  url: "https://spie.org/photonics-west/presentation/Transformer-based-learned-dimensional-collapse-for-silicon-photonic-inverse-design/13890-70"
+
+- id: "vit2026thermally"
+  type: conference
+  title: "Thermally reconfigurable broadband silicon photonic splitter"
+  authors: ["Aycan Deniz Vit", "Bahrem Serhat Danis", "Ujal Rzayev", "Can Dimici", "Ali Najjar Amiri", "Kazim Gorgulu", "Abdullah Magden", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "Silicon Photonics XXI, paper 13902-30"
+  year: "2026"
+  month: "Jan"
+  url: "https://spie.org/photonics-west/presentation/Thermally-reconfigurable-broadband-silicon-photonic-splitter/13902-30"
+
+- id: "danis2026random"
+  type: conference
+  title: "Random deep photonic processor for high-throughput optical inference with cascaded MZI arrays"
+  authors: ["Bahrem Serhat Danis", "Can Dimici", "Aycan Deniz Vit", "Arda Tuna Vit", "Enes Akcakoca", "Demet Baldan Desdemir", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "AI and Optical Data Sciences VII, paper 13906-82"
+  year: "2026"
+  month: "Jan"
+  url: "https://spie.org/photonics-west/presentation/Random-deep-photonic-processor-for-high-throughput-optical-inference-with/13906-82"
+
+- id: "danis2026photonic"
+  type: conference
+  title: "Photonic imitation learning for control tasks using deep photonic agentic networks"
+  authors: ["Bahrem Serhat Danis", "Can Dimici", "Aycan Deniz Vit", "Arda Tuna Vit", "Enes Akcakoca", "Hasan Hüseyin Demir", "Gulzade Polat", "Demet Baldan Desdemir", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "Smart Photonic and Optoelectronic Integrated Circuits 2026, paper 13901-23"
+  year: "2026"
+  month: "Jan"
+  url: "https://spie.org/photonics-west/presentation/Photonic-imitation-learning-for-control-tasks-using-deep-photonic-agentic/13901-23"
+
+- id: "oktay2025experimental"
+  type: conference
+  title: "Experimental Demonstration of Ultra-Wideband Tapers, Splitters and Crossings with sub-0.1dB Loss Through Computationally Efficient and Data-Driven Eigenmode Expansion"
+  authors: ["Mehmet Can Oktay", "Bahrem Serhat Danis", "Ujal Rzayev", "Emir Salih Magden"]
+  venue: "CLEO®/Europe-EQEC 2025"
+  note: "Integrated Optical Devices 2, CK-2.2"
+  year: "2025"
+  url: "https://opg.optica.org/abstract.cfm?URI=CLEO_Europe-2025-ck_2_2"
+
+- id: "oktay2024machine"
+  type: conference
+  title: "Machine-learning-based integrated photonic device optimization with data-driven eigenmode expansion"
+  authors: ["Mehmet Can Oktay", "Aytug Aydogan", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "Integrated Optics: Devices, Materials, and Technologies XXVIII"
+  publisher: "SPIE"
+  year: "2024"
+  url: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12889/128890M/Machine-learning-based-integrated-photonic-device-optimization-with-data-driven/10.1117/12.3002785.full"
+
+- id: "najjar2024wideband"
+  type: conference
+  title: "A wideband silicon photonic duplexer constructed from a deep photonic network of custom Mach-Zehnder interferometers"
+  authors: ["Ali Najjar Amiri", "Aycan Deniz Vit", "Kazim Gorgulu", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "Silicon Photonics XIX"
+  publisher: "SPIE"
+  year: "2024"
+  url: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12891/128910H/A-wideband-silicon-photonic-duplexer-constructed-from-a-deep-photonic/10.1117/12.3002531.full"
+
+- id: "altindag2024experimental"
+  type: conference
+  title: "Experimental demonstration of a broadband, ultra-compact, and fabrication-tolerant silicon photonic 10% power tap"
+  authors: ["Aysemine Altindag", "Ahmet Onur Dasdemir", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "Silicon Photonics XIX"
+  publisher: "SPIE"
+  year: "2024"
+  url: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12891/128910R/Experimental-demonstration-of-a-broadband-ultra-compact-and-fabrication-tolerant/10.1117/12.3002608.full"
+
+- id: "vit2024towards"
+  type: conference
+  title: "Towards universal polarization handling with silicon-based deep photonic networks"
+  authors: ["Aycan Deniz Vit", "Ali Najjar Amiri", "Kazim Gorgulu", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "Integrated Optics: Devices, Materials, and Technologies XXVIII"
+  publisher: "SPIE"
+  year: "2024"
+  url: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12889/128890N/Towards-universal-polarization-handling-with-silicon-based-deep-photonic-networks/10.1117/12.3003033.short"
+
+- id: "gorgulu2024optimizing"
+  type: conference
+  title: "Optimizing photonic devices under fabrication variations with deep photonic networks"
+  authors: ["Kazim Gorgulu", "Aycan Deniz Vit", "Ali Najjar Amiri", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "Silicon Photonics XIX"
+  publisher: "SPIE"
+  year: "2024"
+  url: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12891/128910S/Optimizing-photonic-devices-under-fabrication-variations-with-deep-photonic-networks/10.1117/12.3003058.full"
+
+- id: "dasdemir2024accelerating"
+  type: conference
+  title: "Accelerating simulations in inverse photonic design through factorization caching"
+  authors: ["Ahmet Onur Dasdemir", "Victor Minden", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "Physics and Simulation of Optoelectronic Devices XXXII"
+  publisher: "SPIE"
+  year: "2024"
+  url: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12880/3002568/Accelerating-simulations-in-inverse-photonic-design-through-factorization-caching/10.1117/12.3002568.full"
+
+- id: "gorgulu2024deep"
+  type: conference
+  title: "Deep photonic networks for on-chip dispersion control and optimization"
+  authors: ["Kazim Gorgulu", "Ali Najjar Amiri", "Aycan Deniz Vit", "Emir Salih Magden"]
+  venue: "SPIE Photonics West"
+  note: "Smart Photonic and Optoelectronic Integrated Circuits"
+  publisher: "SPIE"
+  year: "2024"
+  url: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12890/3003132/Deep-photonic-networks-for-on-chip-dispersion-control-and-optimization/10.1117/12.3003132.full"
+
+- id: "dasdemir2023physically"
+  type: conference
+  title: "Physically Accurate Fast Nanophotonic Simulations with Physics Informed Model and Training"
+  authors: ["Ahmet Onur Dasdemir", "Can Dimici", "Aykut Erdem", "Emir Salih Magden"]
+  venue: "NeurIPS 2023 Workshop on Machine Learning and the Physical Sciences"
+  publisher: "NeurIPS"
+  year: "2023"
+  pdf: "https://ml4physicalsciences.github.io/2023/files/NeurIPS_ML4PS_2023_234.pdf"
+
+- id: "najjar2022optical"
+  type: conference
+  title: "Optical Neural Networks with Arbitrary and Wideband Photonic Functionality"
+  authors: ["Ali Najjar Amiri", "Aycan Deniz Vit", "Kazim Gorgulu", "Emir Salih Magden"]
+  venue: "Frontiers in Optics and Laser Science"
+  note: "paper JW4B.40"
+  publisher: "Optica"
+  year: "2022"
+  url: "https://opg.optica.org/viewmedia.cfm?r=1&seq=0&uri=fio-2022-JW4B.40"
+
+- id: "oktay2022efficient"
+  type: conference
+  title: "Efficient Waveguide Taper Design with Rapid and Data-Driven Eigenmode Expansion"
+  authors: ["Mehmet Can Oktay", "Aytug Aydogan", "Emir Salih Magden"]
+  venue: "Photonics North"
+  publisher: "IEEE"
+  year: "2022"
+  url: "https://ieeexplore.ieee.org/abstract/document/9908324"
+
+- id: "gorgulu2022compact"
+  type: conference
+  title: "Compact adiabatic silicon photonic filters with arbitrary and ultra-broadband response"
+  authors: ["Kazim Gorgulu", "Emir Salih Magden"]
+  venue: "Optical Fiber Communication Conference (OFC)"
+  note: "Postdeadline Paper Th4C.3"
+  publisher: "Optica"
+  year: "2022"
+  url: "https://opg.optica.org/abstract.cfm?uri=OFC-2022-Th4C.3"
+
+- id: "notaros2021integrated"
+  type: conference
+  title: "Integrated Optical Phased Arrays for LiDAR, Communications, Augmented Reality, and Beyond"
+  authors: ["Jelena Notaros", "Milica Notaros", "Manan Raval", "Christopher V Poulton", "Matthew J Byrd", "Nanxi Li", "Zhan Su", "Emir Salih Magden", "Erman Timurdogan", "Thomas Dyer", "Christopher Baiocco", "Taehwan Kim", "Pavan Bhargava", "Vladimir Stojanovic", "Michael R Watts"]
+  venue: "Applied Industrial Optics: Spectroscopy, Imaging and Metrology"
+  note: "M2A.3"
+  publisher: "Optica"
+  year: "2021"
+  url: "https://opg.optica.org/abstract.cfm?uri=AIO-2021-M2A.3"
+
+- id: "gorgulu2021compact"
+  type: conference
+  title: "Compact and Broadband Silicon Photonic Multiplexers Based on Fast Adiabatic Structures"
+  authors: ["Kazim Gorgulu", "Emir Salih Magden"]
+  venue: "CLEO: QELS Fundamental Science"
+  note: "JW1A. 23"
+  publisher: "Optical Society of America"
+  year: "2021"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=CLEO_QELS-2021-JW1A.23"
+
+- id: "dasdemir2020multi"
+  type: conference
+  title: "Multi-Scale Hierarchical Topology Optimization for Nanophotonic Design"
+  authors: ["Ahmet Onur Dasdemir", "Ahmet Kagan Koral", "Berna Kiraz", "Alper Kiraz", "Emir Salih Magden"]
+  venue: "Integrated Photonics Research, Silicon and Nanophotonics"
+  note: "ITu4A. 11, poster+presentation"
+  publisher: "Optical Society of America"
+  year: "2020"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=iprsn-2020-ITu4A.11"
+
+- id: "magden2019integrated"
+  type: conference
+  title: "Integrated Dichroic Filtering for Octave-spanning Silicon Photonics"
+  authors: ["Emir Salih Magden"]
+  venue: "Novel Optical Materials and Applications"
+  note: "paper NoW1B-2"
+  publisher: "Optical Society of America"
+  year: "2019"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=noma-2019-NoW1B.2"
+
+- id: "xin2019optical_conf"
+  type: conference
+  title: "An optical frequency synthesizer using an integrated erbium tunable laser"
+  authors: ["Ming Xin", "Nanxi Li", "Neetesh Singh", "Alfonso Ruocco", "Zhan Su", "Emir Salih Magden", "Jelena Notaros", "Diedrik Vermeulen", "Erich P Ippen", "Michael R Watts", "Franz X Kärtner"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper SW4G.6"
+  publisher: "OSA"
+  year: "2019"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=CLEO_SI-2019-SW4G.6"
+
+- id: "singh2019silicon_conf"
+  type: conference
+  title: "Silicon photonics optical frequency synthesizer-SPOFS"
+  authors: ["Neetesh Singh", "Ming Xin", "Nanxi Li", "Diedrik Vermeulen", "Alfonso Ruocco", "Emir Salih Magden", "Katia Shtyrkova", "Patrick T Callahan", "Erich Ippen", "Franz X Kärtner", "Michael R Watts"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper ATh4I.2"
+  publisher: "OSA"
+  year: "2019"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=CLEO_AT-2019-ATh4I.2"
+
+- id: "shtyrkova2018integrated_conf"
+  type: conference
+  title: "Integrated CMOS-compatible Q-Switched-Mode-Locked Laser at 1.9 µm with On-Chip Artificial Saturable Absorber"
+  authors: ["Katia Shtyrkova", "Patrick T Callahan", "Nanxi Li", "Emir Salih Magden", "Michael R Watts", "Franz X Kärtner", "Erich P Ippen"]
+  venue: "Integrated Photonics Research, Silicon and Nanophotonics"
+  note: "paper IM3B.2"
+  publisher: "Optical Society of America"
+  year: "2018"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=IPRSN-2018-IM3B.2"
+
+- id: "kartner2018integrated"
+  type: conference
+  title: "Integrated rare-Earth doped mode-locked lasers on a CMOS platform"
+  authors: ["Franz X Kärtner", "Patrick Callahan", "Katia Shtyrkova", "Nanxi Li", "Neetesh Singh", "Ming Xin", "Ravi Koustuban", "Jelena Notaros", "Emir Salih Magden", "Diedrik Vermeulen", "Erich P Ippen", "Michael R Watts"]
+  venue: "SPIE Photonics Europe"
+  note: "vol. 10686, p. 106860F"
+  publisher: "SPIE"
+  year: "2018"
+  url: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10686/106860F/Integrated-rare-Earth-doped-mode-locked-lasers-on-a-CMOS/10.1117/12.2318010.full?SSO=1"
+
+- id: "singh2018silicon_conf"
+  type: conference
+  title: "Silicon-photonics-based optical frequency synthesizer"
+  authors: ["Neetesh Singh", "Ming Xin", "Nanxi Li", "Diedrik Vermeulen", "Alfonso Ruocco", "Emir Salih Magden", "Katia Shtyrkova", "Patrick T Callahan", "Christopher Baiocco", "Erich Ippen", "Franz X Kärtner", "Michael R Watts"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper SM3L.1"
+  publisher: "OSA"
+  year: "2018"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=CLEO_SI-2018-SM3L.1"
+
+- id: "li2018cmos"
+  type: conference
+  title: "CMOS-Compatible Tunable Vernier Ring Laser using Erbium Doped Waveguide on a Silicon Photonics Platform"
+  authors: ["Nanxi Li", "Diedrik Vermeulen", "Zhan Su", "Emir Salih Magden", "Alfonso Ruocco", "Neetesh Singh", "Jelena Notaros", "Ming Xin", "Christopher V Poulton", "Erman Timurdogan", "Christopher Baiocco", "Michael R Watts"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper SW3B.4"
+  publisher: "OSA"
+  year: "2018"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=CLEO_SI-2018-SW3B.4"
+
+- id: "notaros2018cmos_conf"
+  type: conference
+  title: "CMOS-Compatible Optical Phased Arrays with Monolithically-Integrated Erbium Lasers"
+  authors: ["Jelena Notaros", "Nanxi Li", "Christopher V Poulton", "Zhan Su", "Matthew J Byrd", "Emir Salih Magden", "Michael R Watts"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper STu4B.2"
+  publisher: "OSA"
+  year: "2018"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=CLEO_SI-2018-STu4B.2"
+
+- id: "li2018monolithically_conf"
+  type: conference
+  title: "Monolithically Integrated Holmium Lasers on Silicon Chips"
+  authors: ["Nanxi Li", "E Salih Magden", "Zhan Su", "Neetesh Singh", "Alfonso Ruocco", "Ming Xin", "Matthew Byrd", "Patrick T Callahan", "Jonathan DB Bradley", "Diedrik Vermeulen", "Michael R Watts"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper SF1A.6"
+  publisher: "OSA"
+  year: "2018"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=CLEO_SI-2018-SF1A.6"
+
+- id: "frankis2018four"
+  type: conference
+  title: "Four-Wave Mixing in a High-Q Aluminum Oxide Microcavity on Silicon"
+  authors: ["Henry C Frankis", "Zhan Su", "Nanxi Li", "Emir Salih Magden", "Mengyuan Ye", "Michael R Watts", "Jonathan DB Bradley"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper STh3I.3"
+  publisher: "OSA"
+  year: "2018"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=CLEO_SI-2018-STh3I.3"
+
+- id: "li2018ultra"
+  type: conference
+  title: "Ultra-narrow-linewidth erbium-doped lasers on a silicon photonics platform"
+  authors: ["Nanxi Li", "Purnawirman", "E Salih Magden", "Gurpreet Singh", "Neetesh Singh", "Anna Baldycheva", "Ehsan S Hosseini", "Jie Sun", "Michele Moresco", "Thomas N Adam", "Gerald Leake", "Douglas Coolbaugh", "Jonathan DB Bradley", "Michael R Watts"]
+  venue: "SPIE OPTO"
+  note: "Silicon Photonics XIII, vol. 10537, p. 1053712"
+  publisher: "SPIE"
+  year: "2018"
+  url: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10537/1053712/Ultra-narrow-linewidth-erbium-doped-lasers-on-a-silicon-photonics/10.1117/12.2288791.full"
+
+- id: "li2017thulium"
+  type: conference
+  title: "Thulium-doped distributed feedback and distributed Bragg reflector lasers on silicon chips"
+  authors: ["Nanxi Li", "Zhan Su", "Emir Salih Magden", "Patrick T Callahan", "Katia Shtyrkova", "Ming Xin", "Alfonso Ruocco", "Christopher Baiocco", "Erich P Ippen", "Franz X Kärtner", "Jonathan DB Bradley", "Diedrik Vermeulen", "Michael R Watts"]
+  venue: "Lasers and Electro-Optics Pacific Rim (CLEO-PR), Conference on"
+  publisher: "OSA"
+  year: "2017"
+  url: "https://ieeexplore.ieee.org/abstract/document/8118763/"
+
+- id: "li2017reliable_conf"
+  type: conference
+  title: "Reliable Silicon Photonic Light Source Using Curved Distributed Feedback Lasers"
+  authors: ["Nanxi Li", "Purnawirman", "Gurpreet Singh", "Emir Salih Magden", "Michele Moresco", "Thomas Adam", "Gerald Leake", "Douglas Coolbaugh", "Jonathan Bradley", "Michael Watts"]
+  venue: "Integrated Photonics Research, Silicon and Nanophotonics"
+  note: "paper ITu2A-5"
+  publisher: "Optical Society of America"
+  year: "2017"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=IPRSN-2017-ITu2A.5"
+
+- id: "li2017demonstration"
+  type: conference
+  title: "Demonstration of athermally synchronized distributed feedback laser with microring filter"
+  authors: ["Nanxi Li", "Zhan Su", "E Salih Magden", "Alfonso Ruocco", "Neetesh Singh", "Matthew J Byrd", "Christopher V Poulton", "Jonathan DB Bradley", "Gerald Leake", "Douglas D Coolbaugh", "Michael R Watts"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper STh3N.6"
+  publisher: "OSA"
+  year: "2017"
+  url: "https://ieeexplore.ieee.org/abstract/document/8084262/"
+
+- id: "singh2017octave"
+  type: conference
+  title: "Octave spanning supercontinuum generation in silicon from 1.1 μm to beyond 2.4 μm"
+  authors: ["Neetesh Singh", "Ming Xin", "Diedrik Vermeulen", "Katia Shtyrkova", "Emir Salih Magden", "Patrick T Callahan", "Nanxi Li", "Alfonso Ruocco", "Nicholas Fahrenkopf", "Douglas D Coolbaugh", "Bill P-P Kuo", "Stojan Radic", "Erich Ippen", "Franz X Kärtner", "Michael R Watts"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper STu4J.7"
+  publisher: "OSA"
+  year: "2017"
+  url: "https://ieeexplore.ieee.org/abstract/document/8084391/"
+
+- id: "magden2017frequency_conf"
+  type: conference
+  title: "Frequency-domain measurement of spontaneous emission lifetime in rare-earth-doped gain media"
+  authors: ["Emir Salih Magden", "Patrick T Callahan", "Nanxi Li", "Katia Shtyrkova", "Alfonso Ruocco", "Neetesh Singh", "Ming Xin", "Diedrik Vermeulen", "Jonathan DB Bradley", "Gerald Leake", "Douglas D Coolbaugh", "Leslie A Kolodziejski", "Franz X Kärtner", "Erich P Ippen", "Michael R Watts"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper SM1K.3"
+  publisher: "OSA"
+  year: "2017"
+  url: "https://ieeexplore.ieee.org/abstract/document/8083979/"
+
+- id: "bradley2017microlasers"
+  type: conference
+  title: "Microlasers based on high-Q rare-earth-doped aluminum oxide resonators on silicon"
+  authors: ["Jonathan DB Bradley", "Zhan Su", "Henry C Frankis", "Emir Salih Magden", "Nanxi Li", "Matthew Byrd", "Purnawirman Purnawirman", "Ehsan Shah Hosseini", "Thomas N Adam", "Gerald Leake", "Douglas Coolbaugh", "Michael R Watts"]
+  venue: "SPIE OPTO"
+  note: "Integrated Optics: Devices, Materials, and Technologies XXI, vol. 10106, p. 1010602"
+  publisher: "SPIE"
+  year: "2017"
+  url: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/10106/1010602/Microlasers-based-on-high-Q-rare-earth-doped-aluminum-oxide/10.1117/12.2255955.full?SSO=1"
+
+- id: "magden2017mode"
+  type: conference
+  title: "Mode-evolution-based, broadband 1× 2 port high-pass/low-pass filter for silicon photonics"
+  authors: ["Emir Salih Magden", "Christopher V Poulton", "Nanxi Li", "Diedrik Vermeulen", "Alfonso Ruocco", "Neetesh Singh", "Gerald Leake", "Douglas Coolbaugh", "Leslie A Kolodziejski", "Michael R Watts"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper Th1G.2"
+  publisher: "OSA"
+  year: "2017"
+  url: "https://ieeexplore.ieee.org/abstract/document/7936925/"
+
+- id: "callahan2017fully"
+  type: conference
+  title: "Fully-Integrated CMOS-Compatible Q-Switched Laser at 1.9µm Using Thulium-Doped Al2O3"
+  authors: ["Patrick T Callahan", "Katia Shtyrkova", "Nanxi Li", "Emir Salih Magden", "Purnawirman", "Christopher Baiocco", "Douglas Coolbaugh", "Erich P Ippen", "Michael R Watts", "Franz X Kärtner"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper STh3N.2"
+  publisher: "OSA"
+  year: "2017"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=CLEO_SI-2017-STh3N.2"
+
+- id: "li2016high_conf"
+  type: conference
+  title: "High-power CMOS-compatible photonic integrated thulium-doped distributed feedback laser"
+  authors: ["Nanxi Li", "Zhan Su", "Emir Salih Magden", "Patrick T Callahan", "Katia Shtyrkova", "Ming Xin", "Alfonso Ruocco", "Nicholas Fahrenkopf", "Christopher Baiocco", "Gerald Leake", "Daniel Coleman", "Douglas Coolbaugh", "Erich P Ippen", "Franz X Kärtner", "Diedrik Vermeulen", "Michael R Watts"]
+  venue: "IEEE Photonics Conference (IPC)"
+  pages: "702-703"
+  year: "2016"
+  url: "https://ieeexplore.ieee.org/abstract/document/7831282/"
+
+- id: "su2016ultra_conf"
+  type: conference
+  title: "Ultra-compact CMOS-compatible ytterbium microlaser"
+  authors: ["Zhan Su", "Jonathan D B Bradley", "Nanxi Li", "E Salih Magden", "Purnawirman", "Daniel Coleman", "Nicholas M Fahrenkopf", "Christopher Baiocco", "Thomas N Adam", "Gerald Leake", "Douglas D Coolbaugh", "Diedrik Vermeulen", "Michael R Watts"]
+  venue: "Integrated Photonics Research, Silicon and Nanophotonics"
+  note: "paper IW1A-3"
+  publisher: "OSA"
+  year: "2016"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=IPRSN-2016-IW1A.3"
+
+- id: "magden2016laser"
+  type: conference
+  title: "Laser frequency stabilization using Pound-Drever-Hall technique with an integrated TiO2 athermal resonator"
+  authors: ["Emir Salih Magden", "Michael Y Peng", "Jonathan DB Bradley", "Gerald Leake", "Douglas D Coolbaugh", "Leslie A Kolodziejski", "Franz X Kärtner", "Michael R Watts"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper STu1H.3"
+  publisher: "OSA"
+  year: "2016"
+  url: "https://ieeexplore.ieee.org/abstract/document/7789021/"
+
+- id: "magden2016fully"
+  type: conference
+  title: "Fully CMOS-compatible integrated distributed feedback laser with 250 C fabricated Al2O3:Er3+ gain medium"
+  authors: ["Emir Salih Magden", "Nanxi Li", "Gurpreet Singh", "Jonathan DB Bradley", "Gale S Petrich", "Gerald Leake", "Douglas D Coolbaugh", "Michael R Watts", "Leslie A Kolodziejski"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper SM1G.2"
+  publisher: "OSA"
+  year: "2016"
+  url: "https://ieeexplore.ieee.org/abstract/document/7788535/"
+
+- id: "bradley2016onchip"
+  type: conference
+  title: "On-Chip and Silicon-Compatible Er-Doped Aluminum Oxide Lasers"
+  authors: ["Jonathan DB Bradley", "Purnawirman", "Ehsan Shah Hosseini", "Zhan Su", "Emir Salih Magden", "Nanxi Li", "Gurpreet Singh", "Jie Sun", "Thomas N Adam", "Gerald Leake", "Douglas Coolbaugh", "Michael R Watts"]
+  venue: "Meeting Abstracts of The Electrochemical Society"
+  note: "no. 42, pp. 2114-2114"
+  year: "2016"
+  url: "http://ma.ecsdl.org/content/MA2016-01/42/2114.short"
+
+- id: "bradley2016thulium"
+  type: conference
+  title: "1.8-μm thulium microlasers integrated on silicon"
+  authors: ["Jonathan DB Bradley", "Zhan Su", "Emir Salih Magden", "Nanxi Li", "Matthew Byrd", "Purnawirman Purnawirman", "Thomas N Adam", "Gerald Leake", "Douglas Coolbaugh", "Michael R Watts"]
+  venue: "SPIE OPTO"
+  note: "Optical Components and Materials XIII, vol. 9744, p. 97440U"
+  publisher: "SPIE"
+  year: "2016"
+  url: "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9744/1/18-%C2%B5m-thulium-microlasers-integrated-on-silicon/10.1117/12.2213678.full"
+
+- id: "li2015selfpulsing"
+  type: conference
+  title: "Self-pulsing in Erbium-doped fiber laser"
+  authors: ["Nanxi Li", "Jonathan D B Bradley", "Gurpreet Singh", "Emir Salih Magden", "Jie Sun", "Michael R Watts"]
+  venue: "Optoelectronics Global Conference (OGC)"
+  pages: "1-2"
+  publisher: "IEEE"
+  year: "2015"
+  url: "https://ieeexplore.ieee.org/abstract/document/7336833/"
+
+- id: "su2015compact"
+  type: conference
+  title: "Compact Rare-Earth-Doped Microring Lasers Monolithically Integrated on Silicon Chips"
+  authors: ["Zhan Su", "Jonathan D B Bradley", "Ehsan Shah Hosseini", "Anna Baldycheva", "Gurpreet Singh", "Emir Salih Magden", "Thomas N Adam", "Gerald Leake", "Douglas Coolbaugh", "Michael R Watts"]
+  venue: "The European Conference on Lasers and Electro-Optics (CLEO Europe)"
+  pages: "CK_12_2"
+  publisher: "OSA"
+  year: "2015"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=CLEO_Europe-2015-CK_12_2"
+
+- id: "soraceagaskar2015integrated"
+  type: conference
+  title: "Integrated mode-locked lasers in a CMOS-compatible silicon photonic platform"
+  authors: ["Cheryl M Sorace-Agaskar", "Patrick T Callahan", "Katia Shtyrkova", "Anna Baldycheva", "Michele Moresco", "Jonathan Bradley", "Michael Y Peng", "Nanxi Li", "Emir Salih Magden", "Purnawirman Purnawirman", "Michelle Y Sander", "Gerald Leake", "Douglas D Coolbaugh", "Michael R Watts", "Franz X Kärtner"]
+  venue: "Lasers and Electro-Optics (CLEO), Conference on"
+  note: "paper SM2I.5"
+  publisher: "OSA"
+  year: "2015"
+  url: "https://www.osapublishing.org/abstract.cfm?uri=CLEO_SI-2015-SM2I.5"
+
+- id: "magden2012micro"
+  type: conference
+  title: "Micro-Photoluminescence for Optoelectronic Material Characterization"
+  authors: ["Emir Salih Magden", "Victor Minden", "Corey Shemelya", "Thomas E Vandervelde"]
+  venue: "APS Meeting Abstracts"
+  year: "2012"
+  url: "http://adsabs.harvard.edu/abs/2012APS..MARP28008M"
+
+- id: "chen2012efficiency"
+  type: conference
+  title: "Efficiency Analysis and Demonstration of Split-Junction Photovoltaic Solar cells"
+  authors: ["Han Chen", "Emir Salih Magden", "Chandler Downs", "Thomas E Vandervelde"]
+  venue: "APS Meeting Abstracts"
+  year: "2012"
+  url: "http://adsabs.harvard.edu/abs/2012APS..MARH33005C"
+
+- id: "magden2010multi"
+  type: conference
+  title: "3+1 multijunction testing and operations platform for improved PV and TPV efficiencies"
+  authors: ["Emir Salih Magden", "Han Chen", "Chandler Downs", "Thomas E Vandervelde"]
+  venue: "Innovative Technologies for an Efficient and Reliable Electricity Supply (CITRES)"
+  pages: "116–120"
+  publisher: "IEEE"
+  year: "2010"
+  url: "https://ieeexplore.ieee.org/abstract/document/5619862/"
