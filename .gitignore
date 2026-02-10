@@ -1,11 +1,19 @@
-# Hugo folders
+# Hugo
 public/
-resources/
+resources/_gen/
 .hugo_build.lock
 
-# OS folders
+# OS
 .DS_Store
 Thumbs.db
+*.swp
 
-# Theme git folders (if not using submodules properly)
-themes/*/ .git
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Other
+node_modules/
+.sass-cache/

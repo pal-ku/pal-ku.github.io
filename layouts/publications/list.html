@@ -20,8 +20,14 @@
 </header>
 
 <div class="max-w-4xl mx-0">
-    {{/* Section: Journal Articles and Preprints */}}
-    {{ $journal_preprints := where .Site.Data.publications "type" "in" (slice "journal" "preprint") }}
+    {{ $journal_preprints := .Site.Data.journals }}
+    {{ $temp_jp := slice }}
+    {{ range $journal_preprints }}
+    {{ $item := . }}
+    {{ if not (isset $item "order") }}{{ $item = merge $item (dict "order" 999) }}{{ end }}
+    {{ $temp_jp = $temp_jp | append $item }}
+    {{ end }}
+    {{ $journal_preprints = sort $temp_jp "order" "asc" }}
     {{ $journal_preprints = sort $journal_preprints "year" "desc" }}
 
     {{ if $journal_preprints }}
@@ -93,7 +99,7 @@
                     {{- with $pub.pages }}: {{ . }}{{ end }}
                     ({{ $pub.year }})
                     {{- with $pub.address }}, {{ . }}{{ end }}
-                    {{- with $pub.note }}. {{ . }}{{ end }}
+                    {{- with $pub.note }}, {{ . }}{{ end }}
                     {{ end }}
                 </div>
                 <div class="pub-buttons">
@@ -108,11 +114,18 @@
                         class="pub-btn">Preprint</a>{{ end }}
                     {{ end }}
                     {{ else }}
+                    {{ $journalLink := "" }}
                     {{ with $pub.doi }}
-                    <a href="https://doi.org/{{ . }}" target="_blank" tabindex="-1" class="pub-btn">Journal</a>
+                    {{ if findRE "^http" . }}
+                    {{ $journalLink = . }}
                     {{ else }}
-                    {{ with $pub.url }}<a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">Journal</a>{{ end
-                    }}
+                    {{ $journalLink = printf "https://doi.org/%s" . }}
+                    {{ end }}
+                    {{ else }}
+                    {{ with $pub.url }}{{ $journalLink = . }}{{ end }}
+                    {{ end }}
+                    {{ with $journalLink }}
+                    <a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">Journal</a>
                     {{ end }}
                     {{ with $pub.preprint }}<a href="{{ . }}" target="_blank" tabindex="-1"
                         class="pub-btn">Preprint</a>{{ end }}
@@ -121,7 +134,7 @@
                     {{ with $pub.pdf }}<a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">PDF</a>{{ end }}
                     {{ with $pub.code }}<a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">Code</a>{{ end
                     }}
-                    <button onclick="copyBibTeX(this)" data-bibtex="{{ $bibtex | htmlEscape }}" tabindex="-1"
+                    <button onclick="copyBibTeX(this)" data-bibtex="{{ $bibtex }}" tabindex="-1"
                         class="pub-btn pub-btn-bibtex"><span>BibTeX</span></button>
                 </div>
             </div>
@@ -131,7 +144,14 @@
     {{ end }}
 
     {{/* Section: Conference Presentations */}}
-    {{ $conferences := where .Site.Data.publications "type" "conference" }}
+    {{ $conferences := .Site.Data.conferences }}
+    {{ $temp_conf := slice }}
+    {{ range $conferences }}
+    {{ $item := . }}
+    {{ if not (isset $item "order") }}{{ $item = merge $item (dict "order" 999) }}{{ end }}
+    {{ $temp_conf = $temp_conf | append $item }}
+    {{ end }}
+    {{ $conferences = sort $temp_conf "order" "asc" }}
     {{ $conferences = sort $conferences "year" "desc" }}
     {{ if $conferences }}
     <section>
@@ -187,7 +207,7 @@
                     {{- with $pub.pages }}: {{ . }}{{ end }}
                     ({{ $pub.year }})
                     {{- with $pub.address }}, {{ . }}{{ end }}
-                    {{- with $pub.note }}. {{ . }}{{ end }}
+                    {{- with $pub.note }}, {{ . }}{{ end }}
                 </div>
                 <div class="pub-buttons">
                     {{ with $storyLink }}<a href="{{ . }}" tabindex="-1" class="pub-btn pub-btn-story">Read Story</a>{{
@@ -203,7 +223,7 @@
                     {{ with $pub.pdf }}<a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">PDF</a>{{ end }}
                     {{ with $pub.code }}<a href="{{ . }}" target="_blank" tabindex="-1" class="pub-btn">Code</a>{{ end
                     }}
-                    <button onclick="copyBibTeX(this)" data-bibtex="{{ $bibtex | htmlEscape }}" tabindex="-1"
+                    <button onclick="copyBibTeX(this)" data-bibtex="{{ $bibtex }}" tabindex="-1"
                         class="pub-btn pub-btn-bibtex"><span>BibTeX</span></button>
                 </div>
             </div>
