@@ -13,10 +13,6 @@
     {{ if .Params.showBreadcrumbs | default (site.Params.list.showBreadcrumbs | default false) }}
     {{ partial "breadcrumbs.html" . }}
     {{ end }}
-    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
-    <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-        {{ partial "article-meta/list.html" (dict "context" . "scope" "single") }}
-    </div>
 </header>
 
 <div class="max-w-4xl mx-0">
@@ -31,10 +27,10 @@
     {{ $journal_preprints = sort $journal_preprints "year" "desc" }}
 
     {{ if $journal_preprints }}
-    <section class="mb-10">
+    <section class="mb-16">
         <h2
-            class="text-lg font-bold mb-4 text-gray-800 dark:text-neutral-200 border-b border-gray-200 dark:border-neutral-700 pb-1">
-            Journal Articles</h2>
+            class="text-3xl font-bold mb-8 text-gray-800 dark:text-neutral-200 border-b border-gray-200 dark:border-neutral-700 pb-2">
+            Journal Publications</h2>
         {{ $count := len $journal_preprints }}
         {{ range $index, $pub := $journal_preprints }}
         {{ $number := sub $count $index }}
@@ -156,7 +152,7 @@
     {{ if $conferences }}
     <section>
         <h2
-            class="text-lg font-bold mb-4 text-gray-800 dark:text-neutral-200 border-b border-gray-200 dark:border-neutral-700 pb-1">
+            class="text-3xl font-bold mb-8 text-gray-800 dark:text-neutral-200 border-b border-gray-200 dark:border-neutral-700 pb-2">
             Conference Presentations and Posters</h2>
         {{ $count := len $conferences }}
         {{ range $index, $pub := $conferences }}

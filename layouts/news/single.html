@@ -25,8 +25,6 @@
       {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
     </div>
 
-    {{/* Linked Publication Information */}}
-    {{ partial "news/linked-publication.html" . }}
 
     {{/* AUTHOR REMOVED FROM NEWS PAGES */}}
   </header>
@@ -47,6 +45,7 @@
       <div class="min-w-0 min-h-0 max-w-fit">
         {{ partial "series/series.html" . }}
         <div class="article-content max-w-prose mb-20">
+          {{ partial "news/linked-publication.html" . }}
           {{ .Content }}
           {{ $defaultReplyByEmail := site.Params.replyByEmail }}
           {{ $replyByEmail := default $defaultReplyByEmail .Params.replyByEmail }}
