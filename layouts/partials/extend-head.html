@@ -17,16 +17,22 @@
     .progressive-img {
         filter: blur(12px);
         transition: none;
+        will-change: filter, opacity;
     }
 
     .progressive-img.loaded {
         filter: blur(0);
-        transition: filter 0.4s ease-in-out;
+        transition: filter 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+
+    .progressive-img.loaded-instant {
+        filter: none !important;
+        transition: none !important;
     }
 </style>
 <script>
     function initProgressiveSwap(img) {
-        if (img.classList.contains('loaded') || !img.dataset.src) return;
+        if (img.classList.contains('loaded') || img.classList.contains('loaded-instant') || !img.dataset.src) return;
 
         const full = new Image();
         full.src = img.dataset.src;
@@ -34,13 +40,18 @@
         if (full.complete) {
             // Cached → swap instantly with no transition
             img.src = full.src;
-            img.style.transition = 'none';
+            img.classList.add('loaded-instant');
             img.classList.add('loaded');
         } else {
             // Not cached → sharpen only after load
             full.onload = () => {
-                img.classList.add('loaded');
                 img.src = full.src;
+                // Double requestAnimationFrame to ensure the src swap is processed before adding the class
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        img.classList.add('loaded');
+                    });
+                });
             };
         }
     }
