@@ -1,0 +1,207 @@
+{{ $relatedIds := .Params.related_publication_ids }}
+{{ if $relatedIds }}
+{{ $journals := slice }}
+{{ $conferences := slice }}
+
+{{/* 1. Gather all linked publications */}}
+{{ range $id := $relatedIds }}
+{{ $found := false }}
+{{ range site.Data.journals }}
+{{ if eq .id $id }}
+{{ $journals = $journals | append (merge . (dict "type" "journal")) }}
+{{ $found = true }}
+{{ end }}
+{{ end }}
+{{ if not $found }}
+{{ range site.Data.conferences }}
+{{ if eq .id $id }}
+{{ $conferences = $conferences | append (merge . (dict "type" "conference")) }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{/* 2. Prioritization Logic: Journals first, then Conferences */}}
+{{ $toDisplay := slice }}
+{{ if gt (len $journals) 0 }}
+{{ $toDisplay = $journals }}
+{{ else if gt (len $conferences) 0 }}
+{{ $toDisplay = $conferences }}
+{{ end }}
+
+{{/* 3. Render Section */}}
+{{ if gt (len $toDisplay) 0 }}
+<div
+    class="linked-article-box p-6 mb-10 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm print:hidden max-w-prose">
+    <h3 class="text-[10px] uppercase tracking-[0.2em] font-bold text-neutral-400 dark:text-neutral-500 mb-5">
+        {{ if gt (len $toDisplay) 1 }}Linked Publications{{ else }}Linked Publication{{ end }}
+    </h3>
+
+    {{ range $index, $pub := $toDisplay }}
+    {{ if gt $index 0 }}
+    <hr class="my-8 border-neutral-200 dark:border-neutral-800">{{ end }}
+
+    {{/* --- DYNAMIC BIBTEX GENERATION --- */}}
+    {{ $formattedAuthors := slice }}
+    {{ range $pub.authors }}
+    {{ $parts := split . " " }}
+    {{ if gt (len $parts) 1 }}
+    {{ $last := index $parts (sub (len $parts) 1) }}
+    {{ $firstParts := first (sub (len $parts) 1) $parts }}
+    {{ $first := delimit $firstParts " " }}
+    {{ $formattedAuthors = $formattedAuthors | append (printf "%s, %s" $last $first) }}
+    {{ else }}
+    {{ $formattedAuthors = $formattedAuthors | append . }}
+    {{ end }}
+    {{ end }}
+    {{ $bibAuthors := delimit $formattedAuthors " and " }}
+
+    {{ $pubType := $pub.type | default "journal" }}
+    {{ $bibtex := "" }}
+    {{ if eq $pubType "journal" }}
+    {{ $bibtex = printf "@article{%s,\n title={%s},\n author={%s},\n journal={%s},\n year={%s}" $pub.id $pub.title
+    $bibAuthors $pub.venue $pub.year }}
+    {{ else }}
+    {{ $bibtex = printf "@inproceedings{%s,\n title={%s},\n author={%s},\n booktitle={%s},\n year={%s}" $pub.id
+    $pub.title $bibAuthors $pub.venue $pub.year }}
+    {{ end }}
+    {{ with $pub.volume }}{{ $bibtex = printf "%s,\n volume={%s}" $bibtex . }}{{ end }}
+    {{ with $pub.issue }}{{ $bibtex = printf "%s,\n number={%s}" $bibtex . }}{{ end }}
+    {{ with $pub.pages }}{{ $bibtex = printf "%s,\n pages={%s}" $bibtex . }}{{ end }}
+    {{ with $pub.doi }}{{ $bibtex = printf "%s,\n doi={%s}" $bibtex . }}{{ end }}
+    {{ with $pub.url }}{{ $bibtex = printf "%s,\n url={%s}" $bibtex . }}{{ end }}
+    {{ $bibtex = printf "%s\n}" $bibtex }}
+
+    <div class="publication-item">
+        <div class="pub-title text-[15px] font-bold leading-snug mb-0.5" style="color: rgb(var(--color-neutral-900));">
+            {{ $pub.title }}
+        </div>
+        <div class="pub-authors text-sm mb-0.5" style="color: rgb(var(--color-primary-600));">
+            {{ delimit $pub.authors ", " }}
+        </div>
+        <div class="pub-venue text-sm italic mb-3" style="color: rgb(var(--color-neutral-600));">
+            {{ $pub.venue }}
+            {{- with $pub.volume }} {{ . }}{{ end }}
+            {{- with $pub.issue }}({{ . }}){{ end }}
+            {{- with $pub.pages }}: {{ . }}{{ end }}
+            ({{ $pub.year }})
+        </div>
+
+        {{/* Buttons — EXACT same order and logic as publications/list.html */}}
+        <div class="pub-buttons">
+            {{ if eq $pubType "journal" }}
+            {{ $link := "" }}
+            {{ with $pub.doi }}
+            {{ if findRE "^http" . }}{{ $link = . }}{{ else }}{{ $link = printf "https://doi.org/%s" . }}{{ end }}
+            {{ else }}
+            {{ with $pub.url }}{{ $link = . }}{{ end }}
+            {{ end }}
+            {{ with $link }}<a href="{{ . }}" target="_blank" class="pub-btn">Journal</a>{{ end }}
+            {{ else }}
+            {{ $link := "" }}
+            {{ with $pub.url }}{{ $link = . }}{{ end }}
+            {{ if not $link }}{{ with $pub.doi }}{{ $link = printf "https://doi.org/%s" . }}{{ end }}{{ end }}
+            {{ with $link }}<a href="{{ . }}" target="_blank" class="pub-btn">Conference</a>{{ end }}
+            {{ end }}
+
+            {{ with $pub.preprint }}<a href="{{ . }}" target="_blank" class="pub-btn">Preprint</a>{{ end }}
+            {{ with $pub.pdf }}<a href="{{ . }}" target="_blank" class="pub-btn">PDF</a>{{ end }}
+            {{ with $pub.code }}<a href="{{ . }}" target="_blank" class="pub-btn">Code</a>{{ end }}
+            <button onclick="copyBibTeX(this)" data-bibtex="{{ $bibtex }}"
+                class="pub-btn pub-btn-bibtex"><span>BibTeX</span></button>
+        </div>
+    </div>
+    {{ end }}
+</div>
+
+<style>
+    .pub-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 6px;
+    }
+
+    .pub-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        height: 24px;
+        padding: 0 10px;
+        font-size: 12px;
+        font-weight: 500;
+        color: rgb(var(--color-neutral-700));
+        border: 1px solid rgb(var(--color-neutral-400));
+        border-radius: 6px;
+        background: transparent;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.1s;
+    }
+
+    .dark .pub-btn {
+        color: rgb(var(--color-neutral-300));
+        border-color: rgb(var(--color-neutral-500));
+    }
+
+    .pub-btn:hover,
+    .pub-btn.copied {
+        background: rgb(var(--color-primary-600)) !important;
+        border-color: rgb(var(--color-primary-600)) !important;
+        color: rgb(var(--color-neutral-100)) !important;
+    }
+
+    .dark .pub-btn:hover,
+    .dark .pub-btn.copied {
+        background: rgb(var(--color-primary-400)) !important;
+        border-color: rgb(var(--color-primary-400)) !important;
+        color: rgb(var(--color-neutral-900)) !important;
+    }
+
+    .pub-btn-bibtex {
+        width: 65px;
+    }
+
+    .pub-btn span {
+        transition: opacity 0.1s;
+    }
+</style>
+
+<script>
+    { { if not(isset.Scratch "bibtex_script_added") } }
+    const SYNC_DELAY_MS = -10;
+    const FADE_DURATION_MS = 100;
+    const AUTO_RESET_DELAY_MS = 1000;
+
+    function copyBibTeX(button) {
+        const bibContent = button.dataset.bibtex;
+        const textSpan = button.querySelector('span');
+
+        navigator.clipboard.writeText(bibContent).then(() => {
+            textSpan.innerText = 'Copied!';
+            button.classList.add('copied');
+
+            setTimeout(() => {
+                button.classList.remove('copied');
+            }, AUTO_RESET_DELAY_MS);
+
+            const textSequenceStart = Math.max(0, AUTO_RESET_DELAY_MS + SYNC_DELAY_MS);
+
+            setTimeout(() => {
+                textSpan.style.opacity = '0';
+                setTimeout(() => {
+                    textSpan.innerText = 'BibTeX';
+                    requestAnimationFrame(() => {
+                        textSpan.style.opacity = '1';
+                    });
+                }, FADE_DURATION_MS);
+            }, textSequenceStart);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+    { { .Scratch.Set "bibtex_script_added" true } }
+    { { end } }
+</script>
+{{ end }}
+{{ end }}

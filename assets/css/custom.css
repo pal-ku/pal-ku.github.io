@@ -8,12 +8,13 @@
 }
 
 html {
-  overflow-x: hidden !important;
   overflow-y: scroll !important;
 }
 
 body {
   position: relative;
+  overflow-x: clip;
+  /* Prevent layout breakage without hiding history navigation gestures */
 }
 
 /* 3. Logo Size */
@@ -89,4 +90,63 @@ img.logo,
   width: 100vw !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
+}
+
+/* 10. Link Visibility Overrides for Cards */
+.article-link--card a {
+  color: rgb(37, 99, 235) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+}
+
+.dark .article-link--card a {
+  color: rgb(96, 165, 250) !important;
+}
+
+.article-link--card a:hover {
+  text-decoration: underline !important;
+  text-decoration-color: currentColor !important;
+  opacity: 0.8;
+}
+
+/* 11. News Grid Separation (Force gaps (margins) to be respected) */
+.news-card {
+  min-width: 0 !important;
+  width: 100% !important;
+  --news-hover-color: #2563eb;
+  --news-hover-weight: 2px;
+}
+
+/* 12. News Card Visuals (Black titles, Blue hover underline - CROSS-BROWSER) */
+.news-card a {
+  color: #1a1a1a !important;
+  /* Definitive Black */
+  text-decoration: none !important;
+}
+
+.news-card:hover a {
+  text-decoration: underline !important;
+  text-decoration-color: var(--news-hover-color) !important;
+  text-decoration-thickness: var(--news-hover-weight) !important;
+}
+
+.dark .news-card a {
+  color: #f5f5f5 !important;
+}
+
+/* 13. FAQ Card Links (Restore blue & underlined links) */
+.article-link--card .article-link__summary a {
+  color: #2563eb !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 2px !important;
+}
+
+.dark .article-link--card .article-link__summary a {
+  color: #60a5fa !important;
+}
+
+/* 14. FAQ Text Alignment */
+.article-link--card .article-link__summary {
+  text-align: left !important;
 }

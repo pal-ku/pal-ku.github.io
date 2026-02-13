@@ -2,7 +2,7 @@
 {{/* Pre-process: Map Publication Keys to News Permalink */}}
 {{ $newsMap := dict }}
 {{ range where site.RegularPages "Section" "news" }}
-{{ $link := .Permalink }}
+{{ $link := .RelPermalink }}
 {{ range .Params.related_publication_ids }}
 {{ $newsMap = merge $newsMap (dict . $link) }}
 {{ end }}

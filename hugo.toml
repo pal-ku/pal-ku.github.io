@@ -35,8 +35,9 @@ theme = 'blowfish'
     layoutBackgroundBlur = true
     layoutBackgroundHeaderSpace = false
     cardView = true
-    cardViewScreenWidth = true
+    cardViewScreenWidth = false
     showCards = true
+    showSummary = true
 
   [params.footer]
     showAppearanceSwitcher = false

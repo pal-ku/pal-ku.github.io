@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ .Scratch.Set "scope" "list" }}
+
+{{/* Header (Same as default but consistent) */}}
+<header>
+    {{ if .Params.showBreadcrumbs | default (site.Params.list.showBreadcrumbs | default false) }}
+    {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+    <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        {{ partial "article-meta/list.html" (dict "context" . "scope" "single") }}
+    </div>
+</header>
+
+{{/* Description Content */}}
+<section class="prose flex max-w-full flex-col dark:prose-invert lg:flex-row mb-10">
+    <div class="min-w-0 min-h-0 max-w-prose w-full">
+        {{ .Content }}
+    </div>
+</section>
+
+{{/* Article Grid - ISOLATED News Card Partial (Horizontal Rows) */}}
+{{ if gt .Pages 0 }}
+<div class="py-10 w-full">
+    <section class="grid gap-y-16 grid-cols-1">
+        {{ range (.Paginate .Pages).Pages }}
+        {{ partial "news/card.html" . }}
+        {{ end }}
+    </section>
+</div>
+{{ else }}
+<section class="mt-10 prose dark:prose-invert">
+    <p class="py-8 border-t"><em>{{ i18n "list.no_articles" | emojify }}</em></p>
+</section>
+{{ end }}
+
+{{ partial "pagination.html" . }}
+{{ end }}

@@ -61,7 +61,7 @@ You can use any CSS unit (px, rem, em, %, etc.)
     style="padding-top: {{ $sectionPaddingTop }}; padding-bottom: {{ $sectionPaddingBottom }};">
 
     {{/* Background Image and Overlay */}}
-    <div class="absolute inset-0 z-0 overflow-hidden">
+    <div class="absolute inset-0 z-0 overflow-hidden bg-neutral-900">
         {{ $optimized := partial "optimize-image.html" (dict "img" $bgImage "type" "hero") }}
         <img src="{{ $optimized.Placeholder.RelPermalink }}" data-src="{{ $optimized.WebP.RelPermalink }}"
             alt="Background" class="progressive-img nozoom w-full h-full object-cover object-center opacity-90"

@@ -6,4 +6,4 @@ hideFeatureImage: true
 showSummary: true
 ---
 
-Interested students should contact Prof. Magden with their CVs. For full-time graduate study, apply through the Graduate School of Sciences and Engineering's fall and spring applications.
+We are constantly looking for highly motivated and curious students with interest and background in optics. Interested students at both graduate and undergraduate levels should directly contact Prof. Magden with their CVs. For full-time graduate study, you will also need to apply through [Graduate School of Sciences and Engineering](https://gsse.ku.edu.tr/en/)‘s fall and spring applications for M.S. and Ph.D. candidates.
