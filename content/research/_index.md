@@ -9,7 +9,7 @@ layout: "simple"
   <p class="text-lg text-neutral-600 dark:text-neutral-400">Merging optical physics with machine learning for next-gen adaptability.</p>
 </div>
 
-<img src="/img/research-image1.png" alt="Photonic Learning Machines Diagram" class="w-full h-auto mx-auto nozoom block mb-8 rounded-lg">
+<img src="/img/research-image1.png" alt="Photonic Learning Machines Diagram" class="w-full h-auto mx-auto nozoom block mb-8 rounded-lg" loading="lazy">
 
 We are pioneering a new class of photonic systems that merge **optical physics** with the adaptability of **machine learning** to unlock powerful, high-efficiency information processing. Moving beyond conventional design constraints, our research leverages rich dynamics in interferometric networks, optical gain media, and neuromorphic architectures to build systems that learn, adapt, and optimize.
 
@@ -22,7 +22,7 @@ By using physics-informed machine learning, we develop models and devices that p
   <p class="text-lg text-neutral-600 dark:text-neutral-400">Rethinking integrated device design with inverse design and optimization.</p>
 </div>
 
-<img src="/img/research-image2.jpg" alt="Nanophotonic Design Paradigms Diagram" class="w-full h-auto mx-auto nozoom block mb-8 rounded-lg">
+<img src="/img/research-image2.jpg" alt="Nanophotonic Design Paradigms Diagram" class="w-full h-auto mx-auto nozoom block mb-8 rounded-lg" loading="lazy">
 
 As photonic systems evolve toward greater complexity, we are rethinking integrated device design from the ground up. We develop strategies with extreme computational efficiency through **inverse design**, **adiabatic structures**, and **data-driven optimization**.
 
@@ -35,7 +35,7 @@ These approaches enable rapid and reliable creation of photonic components with 
   <p class="text-lg text-neutral-600 dark:text-neutral-400">Scaling systems with amplification, lasers, and silicon platforms.</p>
 </div>
 
-<img src="/img/research-image3.jpg" alt="Active Photonic Integration Diagram" class="w-full h-auto mx-auto nozoom block mb-8 rounded-lg">
+<img src="/img/research-image3.jpg" alt="Active Photonic Integration Diagram" class="w-full h-auto mx-auto nozoom block mb-8 rounded-lg" loading="lazy">
 
 Our research addresses the critical challenge of scaling next-generation systems: the integration of **active components** like low-noise amplifiers and lasers within silicon-based platforms.
 
