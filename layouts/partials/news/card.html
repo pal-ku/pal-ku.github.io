@@ -8,11 +8,25 @@ Matches Blowfish Docs styling but includes summary snippets.
 {{ if not $page.Params.hideFeatureImage }}
 {{ with $page.Params.featureimage }}
 {{ $asset := resources.Get . }}
-{{ if $asset }}{{ $featuredURL = $asset.RelPermalink }}{{ else }}{{ $featuredURL = . }}{{ end }}
+{{ if $asset }}
+{{ if eq $asset.MediaType.SubType "svg" }}
+{{ $featuredURL = $asset.RelPermalink }}
+{{ else }}
+{{ $featuredURL = ($asset.Resize "600x webp").RelPermalink }}
+{{ end }}
+{{ else }}
+{{ $featuredURL = . }}
+{{ end }}
 {{ end }}
 {{ if not $featuredURL }}
 {{ $images := $page.Resources.ByType "image" }}
-{{ with $images.GetMatch "*feature*" }}{{ $featuredURL = .RelPermalink }}{{ end }}
+{{ with $images.GetMatch "*feature*" }}
+{{ if eq .MediaType.SubType "svg" }}
+{{ $featuredURL = .RelPermalink }}
+{{ else }}
+{{ $featuredURL = (.Resize "600x webp").RelPermalink }}
+{{ end }}
+{{ end }}
 {{ end }}
 {{ end }}
 
