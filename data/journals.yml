@@ -59,6 +59,7 @@
   year: "2026"
   preprint: "https://arxiv.org/abs/2602.03142"
   pdf: "https://arxiv.org/pdf/2602.03142"
+  code: "https://github.com/Photonic-Architecture-Laboratories/drcgenerator"
 
 - id: "demeo2014gasb"
   type: journal
@@ -360,7 +361,7 @@
   issue: "2"
   pages: "142-159"
   year: "2023"
-  doi: "http://jise.btu.edu.tr/en/pub/issue/80390/1346005"
+  doi: "http://jise.btu.edu.tr/en/pub/article/1346005"
 
 - id: "najjar2024deep"
   type: journal
