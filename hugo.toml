@@ -41,6 +41,8 @@ theme = 'blowfish'
 
   [params.footer]
     showAppearanceSwitcher = false
+    showPoweredBy = false
+    showThemeAttribution = false
 
 [menu]
   [[menu.main]]
