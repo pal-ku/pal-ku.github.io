@@ -1,25 +1,84 @@
-{{ $people := .Site.Data.people }}
+{{/* =======================================================================
+People Shortcode — Theme-aligned version
+Uses data/people.yml while matching Blowfish card defaults.
+======================================================================= */}}
 
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 my-10">
-    {{ range $people }}
-    <div class="flex flex-col items-center text-center group">
-        <div
-            class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-4 border-2 border-neutral-200 dark:border-neutral-800 transition-colors group-hover:border-primary-500">
-            {{ $img := resources.Get .image }}
-            {{ if $img }}
-            {{ $optimized := partial "optimize-image.html" (dict "img" $img "type" "card") }}
-            <img src="{{ $optimized.Placeholder.RelPermalink }}" data-src="{{ $optimized.WebP.RelPermalink }}"
-                alt="{{ .name }}" class="progressive-img nozoom w-full h-full object-cover"
-                onload="initProgressiveSwap(this)" decoding="async">
-            {{ else }}
-            <div
-                class="w-full h-full bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center text-neutral-400">
-                {{ partial "icon.html" "user" }}
-            </div>
-            {{ end }}
+{{ $data := .Site.Data.people }}
+
+<div class="not-prose w-full">
+
+  {{ with $data.pi }}
+  <section class="mt-16 mb-16">
+    <h2 class="mb-6 text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral">Principal Investigator</h2>
+    {{ partial "pi/profile-card.html" $ }}
+  </section>
+  {{ end }}
+
+  {{ define "people-grid" }}
+  {{ $students := .students }}
+  {{ $title := .title }}
+
+  {{ if $students }}
+  <section class="mb-16">
+    <h2 class="mb-6 text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral">{{ $title }}</h2>
+
+    <div class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+      {{ range $students }}
+      <article class="article-link--card relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600 flex flex-col items-start text-left">
+        <div class="people-student-media w-full relative overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+          {{ $img := resources.Get .image }}
+          {{ if $img }}
+          {{ $imgURL := $img.RelPermalink }}
+          {{ if ne $img.MediaType.SubType "svg" }}
+          {{ $imgURL = ($img.Resize "600x").RelPermalink }}
+          {{ end }}
+          <img src="{{ $imgURL }}" alt="{{ .name }}" loading="lazy" decoding="async"
+            class="not-prose absolute inset-0 w-full h-full object-cover nozoom">
+          {{ else }}
+          <div class="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-500 text-3xl">👤</div>
+          {{ end }}
         </div>
-        <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-100 mb-0">{{ .name }}</h3>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-0">{{ .affiliation }}</p>
+
+        <div class="p-4 flex flex-col items-start text-left w-full">
+          <header class="w-full">
+            <h3 class="text-xl font-bold text-neutral-800 dark:text-neutral mt-0 mb-1">{{ .name }}</h3>
+          </header>
+
+          {{ with .role }}
+          <div class="text-sm text-neutral-500 dark:text-neutral-400">{{ . }}</div>
+          {{ end }}
+
+          {{ with .email }}
+          <a href="mailto:{{ . }}"
+            class="mt-3 text-sm text-primary-600 dark:text-primary-400 hover:underline hover:underline-offset-2 break-all">
+            {{ . }}
+          </a>
+          {{ end }}
+        </div>
+      </article>
+      {{ end }}
     </div>
-    {{ end }}
+  </section>
+  {{ end }}
+  {{ end }}
+
+  {{ template "people-grid" (dict "students" $data.grad_students "title" "Graduate Students") }}
+  {{ template "people-grid" (dict "students" $data.undergrad_students "title" "Undergraduate Students") }}
+
+  {{ with $data.alumni }}
+  <section class="mb-16">
+    <h2 class="mb-6 text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral">Alumni</h2>
+    <div class="w-full">
+      {{ range . }}
+      <div class="people-alumni-row border-b border-neutral-200 dark:border-neutral-700 last:border-b-0">
+        <span class="people-alumni-name block font-semibold text-neutral-800 dark:text-neutral-100 leading-tight">{{ .name }}</span>
+        {{ with .position }}
+        <span class="people-alumni-position block text-sm text-neutral-500 dark:text-neutral-400 leading-snug">{{ .position }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
 </div>

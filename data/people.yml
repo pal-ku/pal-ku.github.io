@@ -1,11 +1,83 @@
-# Lab Members List
-# Usage: {{< people >}}
-# Photos should be placed in assets/img/people/ and named as listed below.
+# =============================================================================
+# People Data — Photonic Architecture Laboratories
+# =============================================================================
+# Photos go in assets/img/people/ (Hugo asset pipeline).
+# Alumni do not need photos.
 
-- name: "Your Name"
-  affiliation: "Principal Investigator"
-  image: "img/people/pi_placeholder.jpg" # Example path relative to assets/
+pi:
+  name: "Emir Salih Magden"
+  title: "Assistant Professor"
+  department: "Department of Electrical and Electronics Engineering"
+  university: "Koç University"
+  image: "img/EMS_web.jpg"
+  office: "ENG Z11, Lab SNA 149"
+  email: "esmagden  ku  edu  tr"
+  tel: "+90 212 338 0920"
+  degrees:
+    - "Ph.D. Massachusetts Institute of Technology, 2018"
+    - "S.M. Massachusetts Institute of Technology, 2014"
+    - "B.S. Tufts University, 2012"
+  personal_page: "/emir-salih-magden/"
+  google_scholar: "https://scholar.google.com/citations?user=datugSIAAAAJ&hl=en"
 
-# - name: "Member Name"
-#   affiliation: "PhD Candidate"
-#   image: "img/people/member.jpg"
+grad_students:
+  - name: "Mohammad Javad Fakhimi"
+    role: "PhD Student"
+    image: "img/EMS_web.jpg"
+
+  - name: "Can Dimici"
+    role: "MSc Student"
+    image: "img/EMS_web.jpg"
+
+  - name: "Bahrem Serhat Danis"
+    role: "MSc Student"
+    image: "img/EMS_web.jpg"
+
+  - name: "Ujal Rzayev"
+    role: "MSc Student"
+    image: "img/EMS_web.jpg"
+
+undergrad_students:
+  - name: "Hasan Huseyin Demir"
+    role: "Undergraduate Research Student"
+    image: "img/EMS_web.jpg"
+
+  - name: "Zeynep Ipek Yanmaz"
+    role: "Undergraduate Research Student"
+    image: "img/EMS_web.jpg"
+
+  - name: "Gulzade Polat"
+    role: "Undergraduate Research Student"
+    image: "img/EMS_web.jpg"
+
+  - name: "Arda Tuna Vit"
+    role: "Undergraduate Research Student"
+    image: "img/EMS_web.jpg"
+
+  - name: "Enes Akcakoca"
+    role: "Undergraduate Research Student"
+    image: "img/EMS_web.jpg"
+
+  - name: "Demet Baldan Desdemir"
+    role: "Undergraduate Research Student"
+    image: "img/EMS_web.jpg"
+
+alumni:
+  - name: "Kazim Gorgulu"
+    position: ""
+  - name: "Aycan Deniz Vit"
+    position: ""
+  - name: "Mehmet Can Oktay"
+    position: ""
+  - name: "Ahmet Onur Dasdemir"
+    position: ""
+  - name: "Ali Najjar Amiri"
+    position: ""
+  - name: "Aysemine Altindag"
+    position: ""
+  - name: "Ahmet Kagan Koral"
+    position: ""
+  - name: "Aytug Aydogan"
+    position: ""
+  - name: "Suat Icli"
+    position: ""
