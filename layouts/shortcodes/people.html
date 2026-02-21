@@ -1,5 +1,5 @@
 {{/* =======================================================================
-People Shortcode — Theme-aligned version
+People Shortcode - Theme-aligned version
 Uses data/people.yml while matching Blowfish card defaults.
 ======================================================================= */}}
 
@@ -14,6 +14,51 @@ Uses data/people.yml while matching Blowfish card defaults.
   </section>
   {{ end }}
 
+  {{ define "student-card" }}
+  <article class="article-link--card relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600 flex flex-col items-start text-left">
+    <div class="people-student-media w-full relative overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+      {{ $img := resources.Get .image }}
+      {{ if $img }}
+      {{ $imgURL := $img.RelPermalink }}
+      {{ if ne $img.MediaType.SubType "svg" }}
+      {{ $imgURL = ($img.Resize "600x webp").RelPermalink }}
+      {{ end }}
+      {{ $yOffset := .image_position | default "50%" }}
+      <img src="{{ $imgURL }}" alt="{{ .name }}" loading="lazy" decoding="async"
+        style="object-position: center {{ $yOffset }}"
+        class="not-prose absolute inset-0 w-full h-full object-cover nozoom">
+      {{ else }}
+      {{ $parts := split .name " " }}
+      {{ $firstInitial := upper (slicestr (index $parts 0) 0 1) }}
+      {{ $initials := $firstInitial }}
+      {{ if gt (len $parts) 1 }}
+      {{ $lastIndex := sub (len $parts) 1 }}
+      {{ $lastInitial := upper (slicestr (index $parts $lastIndex) 0 1) }}
+      {{ $initials = printf "%s%s" $firstInitial $lastInitial }}
+      {{ end }}
+      <div class="absolute inset-0 flex items-center justify-center bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200 text-4xl font-semibold tracking-wide">{{ $initials }}</div>
+      {{ end }}
+    </div>
+
+    <div class="p-4 flex flex-col items-start text-left w-full">
+      <header class="w-full">
+        <h3 class="text-xl font-bold text-neutral-800 dark:text-neutral mt-0 mb-1">{{ .name }}</h3>
+      </header>
+
+      {{ with .role }}
+      <div class="text-sm text-neutral-500 dark:text-neutral-400">{{ . }}</div>
+      {{ end }}
+
+      {{ with .email }}
+      <a href="mailto:{{ . }}"
+        class="mt-3 text-sm text-primary-600 dark:text-primary-400 hover:underline hover:underline-offset-2 break-all">
+        {{ . }}
+      </a>
+      {{ end }}
+    </div>
+  </article>
+  {{ end }}
+
   {{ define "people-grid" }}
   {{ $students := .students }}
   {{ $title := .title }}
@@ -24,38 +69,17 @@ Uses data/people.yml while matching Blowfish card defaults.
 
     <div class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
       {{ range $students }}
-      <article class="article-link--card relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600 flex flex-col items-start text-left">
-        <div class="people-student-media w-full relative overflow-hidden bg-neutral-200 dark:bg-neutral-800">
-          {{ $img := resources.Get .image }}
-          {{ if $img }}
-          {{ $imgURL := $img.RelPermalink }}
-          {{ if ne $img.MediaType.SubType "svg" }}
-          {{ $imgURL = ($img.Resize "600x").RelPermalink }}
-          {{ end }}
-          <img src="{{ $imgURL }}" alt="{{ .name }}" loading="lazy" decoding="async"
-            class="not-prose absolute inset-0 w-full h-full object-cover nozoom">
-          {{ else }}
-          <div class="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-500 text-3xl">👤</div>
-          {{ end }}
-        </div>
+      {{ $img := resources.Get .image }}
+      {{ if $img }}
+      {{ template "student-card" . }}
+      {{ end }}
+      {{ end }}
 
-        <div class="p-4 flex flex-col items-start text-left w-full">
-          <header class="w-full">
-            <h3 class="text-xl font-bold text-neutral-800 dark:text-neutral mt-0 mb-1">{{ .name }}</h3>
-          </header>
-
-          {{ with .role }}
-          <div class="text-sm text-neutral-500 dark:text-neutral-400">{{ . }}</div>
-          {{ end }}
-
-          {{ with .email }}
-          <a href="mailto:{{ . }}"
-            class="mt-3 text-sm text-primary-600 dark:text-primary-400 hover:underline hover:underline-offset-2 break-all">
-            {{ . }}
-          </a>
-          {{ end }}
-        </div>
-      </article>
+      {{ range $students }}
+      {{ $img := resources.Get .image }}
+      {{ if not $img }}
+      {{ template "student-card" . }}
+      {{ end }}
       {{ end }}
     </div>
   </section>
@@ -68,11 +92,11 @@ Uses data/people.yml while matching Blowfish card defaults.
   {{ with $data.alumni }}
   <section class="mb-16">
     <h2 class="mb-6 text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral">Alumni</h2>
-    <div class="w-full">
-      {{ range . }}
-      <div class="people-alumni-row border-b border-neutral-200 dark:border-neutral-700 last:border-b-0">
+    <div class="people-alumni-list w-full">
+      {{ range $data.alumni }}
+      <div class="people-alumni-row">
         <span class="people-alumni-name block font-semibold text-neutral-800 dark:text-neutral-100 leading-tight">{{ .name }}</span>
-        {{ with .position }}
+        {{ if .position }}
         <span class="people-alumni-position block text-sm text-neutral-500 dark:text-neutral-400 leading-snug">{{ .position }}</span>
         {{ end }}
       </div>

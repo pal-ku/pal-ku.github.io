@@ -1,3 +1,4 @@
+{{ $currentRel := .Page.RelPermalink | relURL }}
 {{ $pi := .Site.Data.people.pi }}
 {{ with $pi }}
 <article
@@ -5,7 +6,11 @@
   <div class="people-pi-media w-full relative overflow-hidden bg-neutral-200 dark:bg-neutral-800">
     {{ $img := resources.Get .image }}
     {{ if $img }}
-    <img src="{{ $img.RelPermalink }}" alt="{{ .name }}" loading="lazy" decoding="async"
+    {{ $imgURL := $img.RelPermalink }}
+    {{ if ne $img.MediaType.SubType "svg" }}
+    {{ $imgURL = ($img.Resize "600x webp").RelPermalink }}
+    {{ end }}
+    <img src="{{ $imgURL }}" alt="{{ .name }}" loading="lazy" decoding="async"
       class="not-prose absolute inset-0 w-full h-full object-cover nozoom">
     {{ else }}
     <div class="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-500 text-5xl">👤</div>
@@ -20,8 +25,15 @@
     <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-0 mb-4">{{ .department }}, {{ .university }}</p>
 
     <div class="pi-contact text-sm text-neutral-700 dark:text-neutral-300">
-      {{ with .office }}<p>Office: {{ . }}</p>{{ end }}
-      {{ with .email }}<p>Email: {{ . }}</p>{{ end }}
+      {{ if .location }}<p>{{ .location }}</p>{{ else if .office }}<p>Office: {{ .office }}</p>{{ end }}
+      {{ with .email }}
+      <p>
+        <a href="mailto:{{ . }}"
+          class="text-primary-600 dark:text-primary-400 hover:underline hover:underline-offset-2 break-all">
+          {{ . }}
+        </a>
+      </p>
+      {{ end }}
       {{ with .tel }}<p>Tel: {{ . }}</p>{{ end }}
       {{ with .degrees }}
       {{ range . }}<p>{{ . }}</p>{{ end }}
@@ -30,10 +42,24 @@
 
     <div class="pub-buttons pi-buttons mt-4">
       {{ with .personal_page }}
-      <a href="{{ . | relURL }}" class="pub-btn">Personal Website</a>
+      {{ if ne $currentRel (. | relURL) }}
+      <a href="{{ . | relURL }}" class="pub-btn pi-btn-link">
+        <span class="pi-btn-icon">{{ partial "icon.html" "link" }}</span>
+        <span>Personal Website</span>
+      </a>
+      {{ end }}
       {{ end }}
       {{ with .google_scholar }}
-      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="pub-btn">Google Scholar</a>
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="pub-btn pi-btn-link pi-btn-scholar">
+        <span class="pi-btn-icon">{{ partial "icon.html" "google-scholar" }}</span>
+        <span>Google Scholar</span>
+      </a>
+      {{ end }}
+      {{ with .linkedin }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="pub-btn pi-btn-link pi-btn-linkedin">
+        <span class="pi-btn-icon">{{ partial "icon.html" "linkedin" }}</span>
+        <span>LinkedIn</span>
+      </a>
       {{ end }}
     </div>
   </div>

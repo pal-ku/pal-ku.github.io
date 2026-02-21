@@ -192,7 +192,7 @@ img.logo,
 }
 
 .people-student-media {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
 }
 
 @media (min-width: 768px) {
@@ -207,13 +207,55 @@ img.logo,
 }
 
 /* 18. People Alumni row spacing */
+.people-alumni-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
 .people-alumni-row {
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
+  padding: 0.125rem 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  border: 0 !important;
 }
 
 .people-alumni-position {
-  margin-top: 0.125rem !important;
+  margin-top: 0.3rem !important;
+}
+
+.pi-btn-link {
+  gap: 0.35rem;
+}
+
+.pi-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pi-btn-scholar .pi-btn-icon {
+  color: #4285f4;
+}
+
+.pi-btn-linkedin .pi-btn-icon {
+  color: #0a66c2;
+}
+
+.dark .pi-btn-scholar .pi-btn-icon {
+  color: #8ab4f8;
+}
+
+.dark .pi-btn-linkedin .pi-btn-icon {
+  color: #78b7ff;
+}
+
+.pub-btn.pi-btn-scholar:hover .pi-btn-icon,
+.pub-btn.pi-btn-scholar:active .pi-btn-icon,
+.pub-btn.pi-btn-scholar.copied .pi-btn-icon,
+.pub-btn.pi-btn-linkedin:hover .pi-btn-icon,
+.pub-btn.pi-btn-linkedin:active .pi-btn-icon,
+.pub-btn.pi-btn-linkedin.copied .pi-btn-icon {
+  color: currentColor;
 }
 
 /* 19. Publication-style utility buttons (shared on PI card/pages) */
