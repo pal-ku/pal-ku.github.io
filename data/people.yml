@@ -74,6 +74,7 @@ undergrad_students:
   - name: "Mehmet Yayla"
     role: "Undergraduate Research Student"
     email: "myayla21@ku.edu.tr"
+    image: "img/mehmet_yayla.jpg"
 
   - name: "Nisa Topcu"
     role: "Undergraduate Research Student"

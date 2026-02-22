@@ -88,7 +88,7 @@
 - id: "li2016c"
   type: journal
   title: "C-band swept wavelength erbium-doped fiber laser with a high-Q tunable interior-ridge silicon microring cavity"
-  authors: ["Nanxi Li", "Erman Timurdogan", "Christopher V Poulton", "Matthew Byrd", "Emir Salih Magden", "Zhan Su", "Purnawirman", "Gerald Leake", "Douglas D Coolbaugh", "Diedrik Vermeulen", "others"]
+  authors: ["Nanxi Li", "Erman Timurdogan", "Christopher V Poulton", "Matthew Byrd", "Emir Salih Magden", "Zhan Su", "Purnawirman", "Gerald Leake", "Douglas D Coolbaugh", "Diedrik Vermeulen", "Michael R Watts"]
   venue: "Optics Express"
   volume: "24"
   issue: "20"
@@ -112,7 +112,7 @@
 - id: "li2017high"
   type: journal
   title: "High-power thulium lasers on a silicon photonics platform"
-  authors: ["Nanxi Li", "Purnawirman Purnawirman", "Zhan Su", "E Salih Magden", "Patrick T Callahan", "Katia Shtyrkova", "Ming Xin", "Alfonso Ruocco", "Christopher Baiocco", "Erich P Ippen", "others"]
+  authors: ["Nanxi Li", "Purnawirman Purnawirman", "Zhan Su", "E Salih Magden", "Patrick T Callahan", "Katia Shtyrkova", "Ming Xin", "Alfonso Ruocco", "Christopher Baiocco", "Erich P Ippen", "Franz X Kaertner", "Jonathan DB Bradley", "Diedrik Vermeulen", "Michael R Watts"]
   venue: "Optics Letters"
   volume: "42"
   issue: "6"
@@ -124,7 +124,7 @@
 - id: "li2017athermal"
   type: journal
   title: "Athermal synchronization of laser source with WDM filter in a silicon photonics platform"
-  authors: ["Nanxi Li", "Zhan Su", "Purnawirman", "Emir Salih Magden", "Christopher V Poulton", "Alfonso Ruocco", "Neetesh Singh", "Matthew J Byrd", "Jonathan DB Bradley", "Gerald Leake", "others"]
+  authors: ["Nanxi Li", "Zhan Su", "Purnawirman", "Emir Salih Magden", "Christopher V Poulton", "Alfonso Ruocco", "Neetesh Singh", "Matthew J Byrd", "Jonathan DB Bradley", "Gerald Leake", "Michael R Watts"]
   venue: "Applied Physics Letters"
   volume: "110"
   issue: "21"
@@ -136,7 +136,7 @@
 - id: "purnawirman2017ultra"
   type: journal
   title: "Ultra-narrow-linewidth Al2O3: Er3+ lasers with a wavelength-insensitive waveguide design on a wafer-scale silicon nitride platform"
-  authors: ["Purnawirman", "Nanxi Li", "Emir Salih Magden", "Gurpreet Singh", "Neetesh Singh", "Anna Baldycheva", "Ehsan Shah Hosseini", "Jie Sun", "Michele Moresco", "Thomas N Adam", "others"]
+  authors: ["Purnawirman", "Nanxi Li", "Emir Salih Magden", "Gurpreet Singh", "Neetesh Singh", "Anna Baldycheva", "Ehsan Shah Hosseini", "Jie Sun", "Michele Moresco", "Thomas N Adam", "Gerard Leake", "Douglas Coolbaugh", "Jonathan D B Bradley", "Michael R Watts"]
   venue: "Optics Express"
   volume: "25"
   issue: "12"
@@ -184,7 +184,7 @@
 - id: "li2018broadband"
   type: journal
   title: "Broadband 2-µm emission on silicon chips: monolithically integrated Holmium lasers"
-  authors: ["Nanxi Li", "Emir Salih Magden", "Zhan Su", "Neetesh Singh", "Alfonso Ruocco", "Ming Xin", "Matthew Byrd", "Patrick T Callahan", "Jonathan DB Bradley", "Christopher Baiocco", "others"]
+  authors: ["Nanxi Li", "Emir Salih Magden", "Zhan Su", "Neetesh Singh", "Alfonso Ruocco", "Ming Xin", "Matthew Byrd", "Patrick T Callahan", "Jonathan DB Bradley", "Christopher Baiocco", "Diedrik Vermeulen", "Michael R Watts"]
   venue: "Optics Express"
   volume: "26"
   issue: "3"
@@ -196,7 +196,7 @@
 - id: "singh2018octave"
   type: journal
   title: "Octave-spanning coherent supercontinuum generation in silicon on insulator from 1.06 µm to beyond 2.4 µm"
-  authors: ["Neetesh Singh", "Ming Xin", "Diedrik Vermeulen", "Katia Shtyrkova", "Nanxi Li", "Patrick T Callahan", "Emir Salih Magden", "Alfonso Ruocco", "Nicholas Fahrenkopf", "Christopher Baiocco", "others"]
+  authors: ["Neetesh Singh", "Ming Xin", "Diedrik Vermeulen", "Katia Shtyrkova", "Nanxi Li", "Patrick T Callahan", "Emir Salih Magden", "Alfonso Ruocco", "Nicholas Fahrenkopf", "Christopher Baiocco", "Bill Kuo", "Stojan Radic", "Erich Ippen", "Franz X Kaertner", "Michael R Watts"]
   venue: "Light: Science & Applications"
   volume: "7"
   issue: "1"
@@ -233,7 +233,7 @@
 - id: "li2018monolithically"
   type: journal
   title: "Monolithically integrated erbium-doped tunable laser on a CMOS-compatible silicon photonics platform"
-  authors: ["Nanxi Li", "Diedrik Vermeulen", "Zhan Su", "Emir Salih Magden", "Ming Xin", "Neetesh Singh", "Alfonso Ruocco", "Jelena Notaros", "Christopher V Poulton", "Erman Timurdogan", "others"]
+  authors: ["Nanxi Li", "Diedrik Vermeulen", "Zhan Su", "Emir Salih Magden", "Ming Xin", "Neetesh Singh", "Alfonso Ruocco", "Jelena Notaros", "Christopher V Poulton", "Erman Timurdogan", "Christopher Baiocco", "Michael R Watts"]
   venue: "Optics Express"
   volume: "26"
   issue: "13"
@@ -258,7 +258,7 @@
 - id: "shtyrkova2019integrated"
   type: journal
   title: "Integrated CMOS-compatible Q-switched mode-locked lasers at 1900nm with an on-chip artificial saturable absorber"
-  authors: ["Katia Shtyrkova", "Patrick T Callahan", "Nanxi Li", "Emir Salih Magden", "Alfonso Ruocco", "Diedrik Vermeulen", "Franz X Kärtner", "Michael R Watts", "Erich P Ippen"]
+  authors: ["Katia Shtyrkova", "Patrick T Callahan", "Nanxi Li", "Emir Salih Magden", "Alfonso Ruocco", "Diedrik Vermeulen", "Franz X Kaertner", "Michael R Watts", "Erich P Ippen"]
   venue: "Optics Express"
   volume: "27"
   issue: "3"
@@ -282,7 +282,7 @@
 - id: "xin2019optical"
   type: journal
   title: "Optical frequency synthesizer with an integrated erbium tunable laser"
-  authors: ["Ming Xin", "Nanxi Li", "Neetesh Singh", "Alfonso Ruocco", "Zhan Su", "Emir Salih Magden", "Jelena Notaros", "Diedrik Vermeulen", "Erich P Ippen", "Michael R Watts", "others"]
+  authors: ["Ming Xin", "Nanxi Li", "Neetesh Singh", "Alfonso Ruocco", "Zhan Su", "Emir Salih Magden", "Jelena Notaros", "Diedrik Vermeulen", "Erich P Ippen", "Michael R Watts", "Franz X Kaertner"]
   venue: "Light: Science & Applications"
   volume: "8"
   issue: "1"
@@ -306,7 +306,7 @@
 - id: "singh2020silicon"
   type: journal
   title: "Silicon photonics optical frequency synthesizer"
-  authors: ["Neetesh Singh", "Ming Xin", "Nanxi Li", "Diedrik Vermeulen", "Alfonso Ruocco", "Emir Salih Magden", "Katia Shtyrkova", "Erich Ippen", "Franz X Kärtner", "Michael R Watts"]
+  authors: ["Neetesh Singh", "Ming Xin", "Nanxi Li", "Diedrik Vermeulen", "Alfonso Ruocco", "Emir Salih Magden", "Katia Shtyrkova", "Erich Ippen", "Franz X Kaertner", "Michael R Watts"]
   venue: "Laser & Photonics Reviews"
   volume: "14"
   issue: "7"
