@@ -11,6 +11,7 @@ theme = 'blowfish'
   defaultAppearance = "light" 
   autoSwitchAppearance = false
   enableThemeToggle = false
+  enableSearch = false
   mainSections = ["news", "publications", "research"] 
 
   [params.author]

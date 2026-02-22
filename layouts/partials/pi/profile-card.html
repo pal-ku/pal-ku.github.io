@@ -1,0 +1,67 @@
+{{ $currentRel := .Page.RelPermalink | relURL }}
+{{ $pi := .Site.Data.people.pi }}
+{{ with $pi }}
+<article
+  class="not-prose article-link--card relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-600 flex flex-col md:flex-row items-start text-left">
+  <div class="people-pi-media w-full relative overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+    {{ $img := resources.Get .image }}
+    {{ if $img }}
+    {{ $imgURL := $img.RelPermalink }}
+    {{ if ne $img.MediaType.SubType "svg" }}
+    {{ $imgURL = ($img.Resize "600x webp").RelPermalink }}
+    {{ end }}
+    <img src="{{ $imgURL }}" alt="{{ .name }}" loading="lazy" decoding="async"
+      class="not-prose absolute inset-0 w-full h-full object-cover nozoom">
+    {{ else }}
+    <div class="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-500 text-5xl">👤</div>
+    {{ end }}
+  </div>
+
+  <div class="p-6 flex flex-col items-start text-left w-full">
+    <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral mt-0 mb-2">{{ .name }}</h2>
+    {{ with .title }}
+    <p class="text-base text-neutral-700 dark:text-neutral-300 mt-0 mb-1">{{ . }}</p>
+    {{ end }}
+    <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-0 mb-4">{{ .department }}, {{ .university }}</p>
+
+    <div class="pi-contact text-sm text-neutral-700 dark:text-neutral-300">
+      {{ if .location }}<p>{{ .location }}</p>{{ else if .office }}<p>Office: {{ .office }}</p>{{ end }}
+      {{ with .email }}
+      <p>
+        <a href="mailto:{{ . }}"
+          class="text-primary-600 dark:text-primary-400 hover:underline hover:underline-offset-2 break-all">
+          {{ . }}
+        </a>
+      </p>
+      {{ end }}
+      {{ with .tel }}<p>Tel: {{ . }}</p>{{ end }}
+      {{ with .degrees }}
+      {{ range . }}<p>{{ . }}</p>{{ end }}
+      {{ end }}
+    </div>
+
+    <div class="pub-buttons pi-buttons mt-4">
+      {{ with .personal_page }}
+      {{ if ne $currentRel (. | relURL) }}
+      <a href="{{ . | relURL }}" class="pub-btn pi-btn-link">
+        <span class="pi-btn-icon">{{ partial "icon.html" "link" }}</span>
+        <span>Personal Website</span>
+      </a>
+      {{ end }}
+      {{ end }}
+      {{ with .google_scholar }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="pub-btn pi-btn-link pi-btn-scholar">
+        <span class="pi-btn-icon">{{ partial "icon.html" "google-scholar" }}</span>
+        <span>Google Scholar</span>
+      </a>
+      {{ end }}
+      {{ with .linkedin }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="pub-btn pi-btn-link pi-btn-linkedin">
+        <span class="pi-btn-icon">{{ partial "icon.html" "linkedin" }}</span>
+        <span>LinkedIn</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</article>
+{{ end }}

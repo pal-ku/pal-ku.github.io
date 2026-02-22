@@ -1,0 +1,55 @@
+{{/* High-quality responsive image for research page hero-like visuals */}}
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ $class := .Get "class" | default "" }}
+{{ $nozoom := .Get "nozoom" | default false }}
+{{ $sizes := .Get "sizes" | default "(min-width: 1280px) 90vw, 100vw" }}
+
+{{ $img := or (resources.Get $src) ($.Page.Resources.GetMatch $src) }}
+
+{{ if $img }}
+  {{ $w1 := 1400 }}
+  {{ $w2 := 2200 }}
+  {{ $img1 := $img }}
+  {{ $img2 := $img }}
+
+  {{ if gt $img.Width $w1 }}
+    {{ $img1 = $img.Resize (printf "%dx" $w1) }}
+  {{ end }}
+  {{ if gt $img.Width $w2 }}
+    {{ $img2 = $img.Resize (printf "%dx" $w2) }}
+  {{ end }}
+
+  {{ $srcset := printf "%s %dw" $img1.RelPermalink $img1.Width }}
+  {{ if ne $img2.RelPermalink $img1.RelPermalink }}
+    {{ $srcset = printf "%s, %s %dw" $srcset $img2.RelPermalink $img2.Width }}
+  {{ end }}
+
+  <figure>
+    <img
+      class="my-0 rounded-md{{ with $nozoom }} nozoom{{ end }}{{ with $class }} {{ . }}{{ end }}"
+      style="width: 100%; max-width: {{ $img.Width }}px; height: auto;"
+      loading="lazy"
+      decoding="async"
+      fetchpriority="auto"
+      alt="{{ $alt }}"
+      width="{{ $img.Width }}"
+      height="{{ $img.Height }}"
+      src="{{ $img1.RelPermalink }}"
+      srcset="{{ $srcset }}"
+      sizes="{{ $sizes }}"
+      data-zoom-src="{{ $img.RelPermalink }}"
+    />
+  </figure>
+{{ else }}
+  <figure>
+    <img
+      class="my-0 rounded-md{{ with $nozoom }} nozoom{{ end }}{{ with $class }} {{ . }}{{ end }}"
+      loading="lazy"
+      decoding="async"
+      fetchpriority="auto"
+      alt="{{ $alt }}"
+      src="{{ $src }}"
+    />
+  </figure>
+{{ end }}
