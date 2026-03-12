@@ -37,7 +37,8 @@ grad_students:
   - name: "Ujal Rzayev"
     role: "MS Student"
     email: "urzayev23@ku.edu.tr"
-
+    image: "img/ujal_rzayev.jpg"
+    
   - name: "Can Dimici"
     role: "MS Student"
     image: "img/can_dimici.jpg"
@@ -53,10 +54,12 @@ undergrad_students:
   - name: "Enes Akcakoca"
     email: "eakcakoca22@ku.edu.tr"
     role: "Undergraduate Research Student"
+    image: "img/enes_akcakoca.jpg"
 
   - name: "Zeynep Ipek Yanmaz"
     role: "Undergraduate Research Student"
     email: "zyanmaz23@ku.edu.tr"
+    image: "img/zeynep_ipek_yanmaz.jpg"
 
   - name: "Hasan Huseyin Demir"
     role: "Undergraduate Research Student"
@@ -70,6 +73,7 @@ undergrad_students:
   - name: "Gulzade Polat"
     role: "Undergraduate Research Student"
     email: "gpolat22@ku.edu.tr"
+    image: "img/gulzade_polat.jpg"
 
   - name: "Mehmet Yayla"
     role: "Undergraduate Research Student"
@@ -79,6 +83,7 @@ undergrad_students:
   - name: "Nisa Topcu"
     role: "Undergraduate Research Student"
     email: "ntopcu23@ku.edu.tr"
+    image: "img/nisa_topcu.jpg"
 
 alumni:
   - name: "Aycan Deniz Vit (MS 2025)"
