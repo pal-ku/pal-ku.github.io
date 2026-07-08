@@ -52,11 +52,13 @@
   pdf: "https://arxiv.org/pdf/2411.16698.pdf"
 
 - id: danis2026intrinsically
-  type: preprint
-  title: "Intrinsically DRC-Compliant Nanophotonic Design via Learned Generative Manifolds"
+  type: journal
+  title: "Intrinsically Design-Rule-Compliant Nanophotonic Inverse Design via Learned Generative Manifolds"
   authors: ["Bahrem Serhat Danis", "Demet Baldan Desdemir", "Enes Akcakoca", "Zeynep Ipek Yanmaz", "Gulzade Polat", "Ahmet Onur Dasdemir", "Aytug Aydogan", "Abdullah Magden", "Emir Salih Magden"]
-  venue: "arXiv:2602.03142"
+  venue: "Laser & Photonics Reviews"
+  pages: "e71486"
   year: "2026"
+  doi: "https://doi.org/10.1002/lpor.71486"
   preprint: "https://arxiv.org/abs/2602.03142"
   pdf: "https://arxiv.org/pdf/2602.03142"
   code: "https://github.com/Photonic-Architecture-Laboratories/drcgenerator"
@@ -336,8 +338,8 @@
   year: "2023"
   publisher: "IEEE"
   doi: "https://ieeexplore.ieee.org/document/10056840"
-  preprint: "https://arxiv.org/abs/2303.05729"
-  pdf: "https://arxiv.org/pdf/2303.05729"
+  preprint: "https://arxiv.org/abs/2209.08620"
+  pdf: "https://arxiv.org/pdf/2209.08620"
 
 - id: "dasdemir2023computational"
   type: journal

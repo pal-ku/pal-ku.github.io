@@ -24,6 +24,22 @@
 #   pdf:       Direct PDF download link
 #   code:      GitHub/Code link
 
+- id: "dimici2026integrated"
+  type: conference
+  title: "Integrated Photonic Computing for Electroencephalography Signal Forecasting"
+  authors: ["Can Dimici", "Ujal Rzayev", "Zeynep İpek Yanmaz", "Bahrem Serhat Danis", "Arda Tuna Vit", "Aycan Deniz Vit", "Enes Akcakoca", "Demet Baldan Desdemir", "Gulzade Polat", "Emir Salih Magden"]
+  venue: "European Conference on Integrated Optics (ECIO) 2026"
+  note: "paper T2C.2"
+  year: "2026"
+
+- id: "rzayev2026spectral"
+  type: conference
+  title: "Spectral Photonic Encoder for Computational Tasks via Optoelectronic Recurrence"
+  authors: ["Ujal Rzayev", "Aras Arslan", "Can Dimici", "Aycan Deniz Vit", "Arda Tuna Vit", "Emir Salih Magden"]
+  venue: "European Conference on Integrated Optics (ECIO) 2026"
+  note: "paper P12.15"
+  year: "2026"
+
 - id: "danis2026learned"
   type: conference
   title: "Learned manifold reparameterization for DRC-compatible inverse design in silicon photonics"
