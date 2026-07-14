@@ -67,7 +67,6 @@ Across all of these devices, we also stress-tested robustness by simulating ±15
 |---|---|---|
 | Where fabrication rules live | Bolted on as an external penalty term | Built into the geometry the generator can produce |
 | How discreteness is reached | Gradually, via scheduled projection-strength (β) increases | Immediately — every output is already discrete |
-| Optimization behavior | Loss spikes at each schedule step | Smooth, monotonic convergence |
 | Hyperparameter tuning | Required per device, per fabrication platform | None beyond training the generator once |
 | Iterations to converge (50/50 splitter) | 800 | 149 (5.3× fewer) |
 | Portability across platforms | Regularization often re-derived per foundry rule set | Swap generator (EBL ↔ PL) by adjusting resolution/kernel size |
