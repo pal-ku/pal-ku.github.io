@@ -93,6 +93,17 @@ undergrad_students:
     email: "ntopcu23@ku.edu.tr"
     image: "img/nisa_topcu.jpg"
 
+  - name: "Mehmet Arda Silahsor"
+    role: "Undergraduate Research Student"
+    email: "msilahsor24@ku.edu.tr"
+    image: "img/mehmet_arda_silahsor.jpg"
+
+  - name: "Muhammet Fazil Balikci"
+    role: "Undergraduate Research Student"
+    email: "mbalikci25@ku.edu.tr"
+    image: "img/muhammet_fazil_balikci.jpg"
+
+
 alumni:
   - name: "Aycan Deniz Vit (MS 2025)"
     position: "Current/Next Position: PhD Candidate, Photonics Research Group, Ghent University/imec"
