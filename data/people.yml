@@ -45,6 +45,11 @@ grad_students:
     image_position: "5%"
     email: "cdimici20@ku.edu.tr"
 
+  - name: "Ahmet Eray Kocaman"
+    role: "MS Student"
+    image: "img/ahmet_eray_kocaman.jpg"
+    email: "akocaman26@ku.edu.tr"
+
 undergrad_students:
   - name: "Demet Baldan Desdemir"
     email: "ddesdemir22@ku.edu.tr"
