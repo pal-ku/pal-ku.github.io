@@ -50,6 +50,9 @@ grad_students:
     image: "img/ahmet_eray_kocaman.jpg"
     email: "akocaman26@ku.edu.tr"
 
+  - name: "Nima Kamali"
+    role: "PhD Student"
+
 undergrad_students:
   - name: "Demet Baldan Desdemir"
     email: "ddesdemir22@ku.edu.tr"
