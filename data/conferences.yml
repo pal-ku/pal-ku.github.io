@@ -31,6 +31,7 @@
   venue: "European Conference on Integrated Optics (ECIO) 2026"
   note: "paper T2C.2"
   year: "2026"
+  url: "https://opg.optica.org/abstract.cfm?URI=ECIO-2026-T2C.2"
 
 - id: "rzayev2026spectral"
   type: conference
@@ -39,6 +40,7 @@
   venue: "European Conference on Integrated Optics (ECIO) 2026"
   note: "paper P12.15"
   year: "2026"
+  url: "https://opg.optica.org/abstract.cfm?URI=ECIO-2026-P12.15"
 
 - id: "danis2026learned"
   type: conference
