@@ -52,6 +52,8 @@ grad_students:
 
   - name: "Nima Kamali"
     role: "PhD Student"
+    image: "img/nima_kamali.jpg"
+    image_position: "30%"
 
 undergrad_students:
   - name: "Demet Baldan Desdemir"
