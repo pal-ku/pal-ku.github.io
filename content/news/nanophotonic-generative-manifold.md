@@ -118,6 +118,8 @@ This work was supported by the Scientific and Technological Research Council of 
              Learned Generative Manifolds},
   journal = {Laser \& Photonics Reviews},
   year    = {2026},
+  volume  = {20},
+  number  = {21},
   pages   = {e71486},
   doi     = {10.1002/lpor.71486},
   url     = {https://onlinelibrary.wiley.com/doi/abs/10.1002/lpor.71486}
