@@ -4,6 +4,8 @@ date: 2026-11-06
 description: "Our paper on nanophotonic inverse design through learned generative manifolds is featured on the back cover of Laser & Photonics Reviews, Volume 20, Issue 21."
 featureimage: "img/lpr-2026-back-cover.jpg"
 heroStyle: "full"
+cardImageFit: "contain"
+cardImageBackground: "#030708"
 showHero: true
 related_publication_ids: ["danis2026intrinsically"]
 ---

@@ -33,10 +33,14 @@ Matches Blowfish Docs styling but includes summary snippets.
 <article
     class="news-card group relative w-full overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-800/50 hover:bg-white dark:hover:bg-neutral-700/50 transition-colors flex flex-col sm:flex-row text-left mb-6">
 
-    {{/* Image Container (Left side on desktop - 1/3 via inline styles) */}}
+    {{/* Image Container (Left side on desktop - 1/3 via inline styles).
+    Front matter cardImageFit: "contain" shows the whole image instead of cropping it
+    (for portrait images such as journal covers); cardImageBackground sets the colour around it. */}}
+    {{ $contain := eq $page.Params.cardImageFit "contain" }}
     {{ with $featuredURL }}
     <a href="{{ $page.RelPermalink }}"
-        class="news-card-image block relative overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+        class="news-card-image block relative overflow-hidden bg-neutral-200 dark:bg-neutral-800{{ if $contain }} news-card-image--contain{{ end }}"
+        {{ with and $contain $page.Params.cardImageBackground }}style="background-color: {{ . | safeCSS }};"{{ end }}>
         <img src="{{ . }}" role="presentation" loading="lazy" decoding="async"
             class="not-prose absolute inset-0 w-full h-full object-cover nozoom">
     </a>

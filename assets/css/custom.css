@@ -169,6 +169,24 @@ img.logo,
   }
 }
 
+/* 15b. News Card Image - whole image, never cropped (front matter cardImageFit: "contain") */
+.news-card-image--contain {
+  background-color: #111;
+  aspect-ratio: 4 / 3;
+}
+
+.news-card-image--contain img {
+  object-fit: contain !important;
+  padding: 12px;
+}
+
+@media (min-width: 640px) {
+  .news-card-image--contain {
+    aspect-ratio: unset;
+    min-height: 240px;
+  }
+}
+
 /* 16. Article Body Links (Blue & Underlined) */
 .article-content a:not(.pub-btn) {
   color: #2563eb !important;
