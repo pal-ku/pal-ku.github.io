@@ -14,7 +14,7 @@ Our paper is featured on the [back cover of *Laser & Photonics Reviews*, Volume 
 
 Congratulations to Bahrem and the whole team on a beautiful cover!
 
+- [The full story: how the generator works, the devices, and how they compare with earlier designs](/news/nanophotonic-generative-manifold/)
 - [Back cover in Laser & Photonics Reviews](https://doi.org/10.1002/lpor.71978)
 - [Volume 20, Issue 21](https://onlinelibrary.wiley.com/toc/18638899/2026/20/21)
-- [Our earlier post on the paper](/news/nanophotonic-generative-manifold/)
 - [Code and trained generator models](https://github.com/Photonic-Architecture-Laboratories/drcgenerator)
