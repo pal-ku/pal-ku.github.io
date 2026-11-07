@@ -10,4 +10,11 @@ showHero: true
 related_publication_ids: ["danis2026intrinsically"]
 ---
 
-Our paper is featured on the [back cover](https://doi.org/10.1002/lpor.71978) of *Laser & Photonics Reviews*, Volume 20, Issue 21. Inverse design usually searches over free pixels and pushes the result toward the fabrication rules with penalty terms that must be scheduled and retuned for each process. We instead train a generator network to learn a representation of the geometries a process can make, and run the inverse design inside that learned space, so every design along the way can be fabricated. The same approach designs power splitters, wavelength duplexers and mode converters across 1500–1600 nm, for both electron-beam lithography and photolithography, at one fifth of the computational cost of pixel-based optimization.
+Our paper is featured on the [back cover of *Laser & Photonics Reviews*, Volume 20, Issue 21](https://doi.org/10.1002/lpor.71978). Inverse design usually searches over free pixels and pushes the result toward the fabrication rules with penalty terms that must be scheduled and retuned for each process. We instead train a generator network to learn a representation of the geometries a process can make, and run the inverse design inside that learned space, so every design along the way can be fabricated. The same approach designs power splitters, wavelength duplexers and mode converters across 1500–1600 nm, for both electron-beam lithography and photolithography, at one fifth of the computational cost of pixel-based optimization.
+
+We are proud to see this work on the cover, and warmly congratulate Bahrem Serhat Danis and the whole team who made it possible.
+
+- [Back cover in Laser & Photonics Reviews](https://doi.org/10.1002/lpor.71978)
+- [Volume 20, Issue 21](https://onlinelibrary.wiley.com/toc/18638899/2026/20/21)
+- [Our earlier post on the paper](/news/nanophotonic-generative-manifold/)
+- [Code and trained generator models](https://github.com/Photonic-Architecture-Laboratories/drcgenerator)
