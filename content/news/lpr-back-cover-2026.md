@@ -14,7 +14,9 @@ Our paper **"Intrinsically Design-Rule-Compliant Nanophotonic Inverse Design via
 
 In this work, the optimizer does not search over free pixels. A generator network first learns a representation of the geometries a fabrication process can make, and the inverse design then runs inside that learned space, so every design along the way can be fabricated. The same approach designs power splitters, wavelength duplexers and mode converters across the 1500–1600 nm band, for both electron-beam lithography and photolithography, at one fifth of the computational cost of pixel-based optimization.
 
-The cover shows this idea: the stacked layers are the stages of the generator, which grow a small latent array into a full device layout, and the device on the chip below is a wavelength duplexer that sends short and long wavelengths to separate output waveguides.
+The journal describes the cover, titled *Generative Manifolds for Photonics*, as follows:
+
+> An exploded isometric view links an abstract neural generative manifold to a fabrication-compliant silicon photonic chip, visualizing how deep generative reparameterization confines inverse design to intrinsically DRC-compliant device geometries.
 
 Congratulations to Bahrem Serhat Danis, the first author, and to all co-authors!
 
